@@ -1,0 +1,29 @@
+{
+  "name": "backbone-forms-jquery-ui",
+  "description": "A Backbone-Forms jQuery UI related editors",
+  "main": [
+    "dist/jquery-ui.js",
+    "dist/jquery-ui.css"
+  ],
+  "authors": [
+    "Tomasz Jakub Rup"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "backbone-forms",
+    "jquery-ui",
+    "editor"
+  ],
+  "homepage": "https://github.com/tomi77/backbone-forms-jquery-ui",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    ".*",
+    "src"
+  ],
+  "dependencies": {
+    "underscore": "^1.8.3",
+    "backbone-forms": "^0.14.1",
+    "jquery-ui": "^1.12.0"
+  }
+}
