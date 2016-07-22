@@ -1,0 +1,12 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "less": "^2.7.1",
+    "less-plugin-clean-css": "^1.5.1"
+  },
+  "scripts": {
+    "build": "for CMD in \"build-css\" \"build-css-min\"; do npm run ${CMD}; done",
+    "build-css": "lessc src/jquery-ui.less dist/jquery-ui.css",
+    "build-css-min": "lessc --clean-css src/jquery-ui.less dist/jquery-ui.min.css"
+  }
+}
