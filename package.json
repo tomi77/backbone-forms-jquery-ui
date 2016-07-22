@@ -1,12 +1,16 @@
 {
   "dependencies": {},
   "devDependencies": {
+    "coffee-script": "^1.10.0",
     "less": "^2.7.1",
-    "less-plugin-clean-css": "^1.5.1"
+    "less-plugin-clean-css": "^1.5.1",
+    "uglify-js": "^2.7.0"
   },
   "scripts": {
-    "build": "for CMD in \"build-css\" \"build-css-min\"; do npm run ${CMD}; done",
+    "build": "for CMD in \"build-css\" \"build-css-min\" \"build-js\" \"uglify\"; do npm run ${CMD}; done",
     "build-css": "lessc src/jquery-ui.less dist/jquery-ui.css",
-    "build-css-min": "lessc --clean-css src/jquery-ui.less dist/jquery-ui.min.css"
+    "build-css-min": "lessc --clean-css src/jquery-ui.less dist/jquery-ui.min.css",
+    "build-js": "coffee --bare --compile --no-header --output dist -- src/jquery-ui.coffee",
+    "uglify": "uglifyjs dist/jquery-ui.js --output dist/jquery-ui.min.js --compress --mangle"
   }
 }
