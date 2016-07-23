@@ -9,6 +9,7 @@ engines:
 ratings:
   paths:
   - "src/*.coffee"
-  - "src/*.scss"
+  - "src/*.sass"
 
-exclude_paths: []
+exclude_paths:
+  - dist/
