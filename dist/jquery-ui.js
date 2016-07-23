@@ -23,7 +23,7 @@
       factory(root._, root.Backbone.Form);
   }
 })(this, function(_, Form) {
-  return Form.editors['jqueryui.Date'] = Form.Editor.extend({
+  Form.editors['jqueryui.Date'] = Form.Editor.extend({
     className: 'bbf-jui-date',
     render: function() {
       this.$el.html('<input type="text">');
@@ -75,7 +75,7 @@
           }
         };
       })(this));
-      return this.$el.datepicker('option', 'beforeShow', (function(_this) {
+      this.$el.datepicker('option', 'beforeShow', (function(_this) {
         return function() {
           if (!_this.hasFocus) {
             _this.trigger('focus', _this);
