@@ -10,13 +10,13 @@ bower install backbone-forms-jquery-ui
 
 ## Editors
 
-### jQuery UI Date editor
+### jQuery UI datepicker editor
 
 ~~~coffee-script
 form = new Backbone.Form
   schema:
     date:
-      type: 'jqueryui.Date'
+      type: 'jqueryui.datepicker'
       title: 'Date'
 $('#form').html form.render().$el
 ~~~
@@ -25,7 +25,7 @@ $('#form').html form.render().$el
 var form = new Backbone.Form({
 schema: {
   date: {
-    type: 'jqueryui.Date',
+    type: 'jqueryui.datepicker',
     title: 'Date'
   }
 }

@@ -2,7 +2,6 @@
   "name": "backbone-forms-jquery-ui",
   "description": "A Backbone-Forms jQuery UI related editors",
   "main": [
-    "dist/jquery-ui.js",
     "dist/jquery-ui.css"
   ],
   "authors": [

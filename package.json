@@ -2,14 +2,11 @@
   "dependencies": {},
   "devDependencies": {
     "coffee-script": "^1.10.0",
-    "node-sass": "^3.8.0",
-    "uglify-js": "^2.7.0"
+    "node-sass": "^3.8.0"
   },
   "scripts": {
-    "build": "for CMD in \"build-css\" \"build-css-min\" \"build-js\" \"uglify\"; do npm run ${CMD}; done",
+    "build": "for CMD in \"build-css\" \"build-js\"; do npm run ${CMD}; done",
     "build-css": "node-sass --output-style expanded -- src/jquery-ui.sass > dist/jquery-ui.css",
-    "build-css-min": "node-sass --output-style compressed -- src/jquery-ui.sass > dist/jquery-ui.min.css",
-    "build-js": "coffee --bare --compile --no-header --output dist -- src/jquery-ui.coffee",
-    "uglify": "uglifyjs dist/jquery-ui.js --output dist/jquery-ui.min.js --compress --mangle"
+    "build-js": "coffee --bare --compile --no-header --output dist -- src/*.coffee"
   }
 }

@@ -1,5 +1,5 @@
 ###
-  Backbone-Forms jQuery UI editors 0.1.0
+  Backbone-Forms jQuery UI datepicker editor 0.1.0
 
   Copyright (c) 2016 Tomasz Jakub Rup
 
@@ -12,16 +12,16 @@
   ### istanbul ignore next ###
   switch
     when typeof define is 'function' and define.amd
-      define ['underscore', 'backbone-forms', 'jquery-ui'], factory
+      define ['underscore', 'backbone-forms', 'jquery-ui/widgets/datepicker'], factory
     when typeof exports is 'object'
-      require('jquery-ui')
+      require('jquery-ui/widgets/datepicker')
       factory require('underscore'), require('backbone-forms')
     else
       factory root._, root.Backbone.Form
   return
 ) @, (_, Form) ->
-  Form.editors['jqueryui.Date'] = Form.Editor.extend
-    className: 'bbf-jui-date'
+  Form.editors['jqueryui.datepicker'] = Form.Editor.extend
+    className: 'bbf-jui-datepicker'
 
     render: () ->
       @$el.html '<input type="text">'
@@ -36,7 +36,7 @@
 
       @setValue @value
 
-      @_observeDatepickerEvents()
+      @_observeWidgetEvents()
 
       @
 
@@ -57,7 +57,7 @@
       if @hasFocus then @$el.datepicker 'hide'
       return
 
-    _observeDatepickerEvents: () ->
+    _observeWidgetEvents: () ->
       @$el.datepicker 'option', 'onSelect', () =>
         @trigger 'change', @
         return
