@@ -23,10 +23,17 @@
   Form.editors['jqueryui.datepicker'] = Form.Editor.extend
     className: 'bbf-jui-datepicker'
 
-    render: () ->
-      @$el.html '<input type="text">'
+    tagName: 'input'
 
-      @$('input').datepicker @schema.editorOptions || {}
+    initialize: (options) ->
+      _.bindAll @, 'focus', 'blur', 'change'
+
+      Form.editors.Base::initialize.call @, options
+
+      @editorOptions = _.extend @schema.editorOptions or {},
+        onSelect: @change
+        onClose: @blur
+        beforeShow: @focus
 
       @value = switch
         when @value and _.isDate @value then @value
@@ -34,10 +41,12 @@
         else
           new Date()
 
+      @$el.attr 'type', 'text'
+      return
+
+    render: () ->
+      @$el.datepicker @editorOptions
       @setValue @value
-
-      @_observeWidgetEvents()
-
       @
 
     ###
@@ -50,26 +59,15 @@
       return
 
     focus: () ->
-      unless @hasFocus then @$el.datepicker 'show'
-      return
+      unless @hasFocus then @trigger 'focus', @
+      {}
 
     blur: () ->
-      if @hasFocus then @$el.datepicker 'hide'
+      if @hasFocus then @trigger 'blur', @
       return
 
-    _observeWidgetEvents: () ->
-      @$el.datepicker 'option', 'onSelect', () =>
-        @trigger 'change', @
-        return
-
-      @$el.datepicker 'option', 'onClose', () =>
-        if @hasFocus then @trigger 'blur', @
-        return
-
-      @$el.datepicker 'option', 'beforeShow', () =>
-        unless @hasFocus then @trigger 'focus', @
-        {}
-
+    change: () ->
+      @trigger 'change', @
       return
 
   return

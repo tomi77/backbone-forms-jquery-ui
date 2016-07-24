@@ -25,9 +25,15 @@
 })(this, function(_, Form) {
   Form.editors['jqueryui.datepicker'] = Form.Editor.extend({
     className: 'bbf-jui-datepicker',
-    render: function() {
-      this.$el.html('<input type="text">');
-      this.$('input').datepicker(this.schema.editorOptions || {});
+    tagName: 'input',
+    initialize: function(options) {
+      _.bindAll(this, 'focus', 'blur', 'change');
+      Form.editors.Base.prototype.initialize.call(this, options);
+      this.editorOptions = _.extend(this.schema.editorOptions || {}, {
+        onSelect: this.change,
+        onClose: this.blur,
+        beforeShow: this.focus
+      });
       this.value = (function() {
         switch (false) {
           case !(this.value && _.isDate(this.value)):
@@ -38,8 +44,11 @@
             return new Date();
         }
       }).call(this);
+      this.$el.attr('type', 'text');
+    },
+    render: function() {
+      this.$el.datepicker(this.editorOptions);
       this.setValue(this.value);
-      this._observeWidgetEvents();
       return this;
     },
 
@@ -54,35 +63,17 @@
     },
     focus: function() {
       if (!this.hasFocus) {
-        this.$el.datepicker('show');
+        this.trigger('focus', this);
       }
+      return {};
     },
     blur: function() {
       if (this.hasFocus) {
-        this.$el.datepicker('hide');
+        this.trigger('blur', this);
       }
     },
-    _observeWidgetEvents: function() {
-      this.$el.datepicker('option', 'onSelect', (function(_this) {
-        return function() {
-          _this.trigger('change', _this);
-        };
-      })(this));
-      this.$el.datepicker('option', 'onClose', (function(_this) {
-        return function() {
-          if (_this.hasFocus) {
-            _this.trigger('blur', _this);
-          }
-        };
-      })(this));
-      this.$el.datepicker('option', 'beforeShow', (function(_this) {
-        return function() {
-          if (!_this.hasFocus) {
-            _this.trigger('focus', _this);
-          }
-          return {};
-        };
-      })(this));
+    change: function() {
+      this.trigger('change', this);
     }
   });
 });
