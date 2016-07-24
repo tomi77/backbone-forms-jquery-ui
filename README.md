@@ -18,6 +18,8 @@ form = new Backbone.Form
     date:
       type: 'jqueryui.datepicker'
       title: 'Date'
+      editorOptions:
+        numberOfMonths: [2, 3]
 $('#form').html form.render().$el
 ~~~
 
@@ -26,7 +28,10 @@ var form = new Backbone.Form({
 schema: {
   date: {
     type: 'jqueryui.datepicker',
-    title: 'Date'
+    title: 'Date',
+    editorOptions: {
+      numberOfMonths: [2, 3]
+    }
   }
 }
 });

@@ -24,10 +24,10 @@
   }
 })(this, function(_, Form) {
   Form.editors['jqueryui.datepicker'] = Form.Editor.extend({
-    className: 'bbf-jui-date',
+    className: 'bbf-jui-datepicker',
     render: function() {
       this.$el.html('<input type="text">');
-      this.$('input').datepicker();
+      this.$('input').datepicker(this.schema.editorOptions || {});
       this.value = (function() {
         switch (false) {
           case !(this.value && _.isDate(this.value)):

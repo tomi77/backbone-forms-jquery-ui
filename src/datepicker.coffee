@@ -26,7 +26,7 @@
     render: () ->
       @$el.html '<input type="text">'
 
-      @$('input').datepicker()
+      @$('input').datepicker @schema.editorOptions || {}
 
       @value = switch
         when @value and _.isDate @value then @value
