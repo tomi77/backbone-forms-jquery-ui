@@ -37,3 +37,5 @@ schema: {
 });
 $('#form').html(form.render().$el);
 ~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/datepicker.html)
