@@ -11,7 +11,9 @@
   "keywords": [
     "backbone-forms",
     "jquery-ui",
-    "editor"
+    "editor",
+    "datepicker",
+    "autocomplete"
   ],
   "homepage": "https://github.com/tomi77/backbone-forms-jquery-ui",
   "ignore": [
