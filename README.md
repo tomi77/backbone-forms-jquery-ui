@@ -93,3 +93,32 @@ $('#form').html(form.render().$el);
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/datepicker.html)
+
+### jQuery UI selectmenu editor
+
+~~~coffee-script
+form = new Backbone.Form
+  schema:
+    speed:
+      type: 'jqueryui.selectmenu'
+      title: 'Speed'
+      options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster']
+      delay: 200
+$('#form').html form.render().$el
+~~~
+
+~~~js
+var form = new Backbone.Form({
+schema: {
+  speed: {
+    type: 'jqueryui.selectmenu',
+    title: 'Speed',
+    options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster'],
+    delay: 200
+  }
+}
+});
+$('#form').html(form.render().$el);
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/selectmenu.html)
