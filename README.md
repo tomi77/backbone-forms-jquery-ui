@@ -222,5 +222,4 @@ var form = new Backbone.Form({
 
 ## TODO
 
-* controlgroup
 * checkboxradio
