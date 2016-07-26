@@ -12,6 +12,14 @@ bower install backbone-forms-jquery-ui
 
 ### jQuery UI autocomplete editor
 
+#### Schema options
+
+`options` - Array of strings or Backbone Collection
+
+`editorOptions` - jQuery UI autocomplete options
+
+#### CoffeeScript Example
+
 ~~~coffee-script
 states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
   'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
@@ -34,6 +42,8 @@ form = new Backbone.Form
         minLength: 2
 $('#form').html form.render().$el
 ~~~
+
+#### JavaScript Example
 
 ~~~js
 var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
@@ -66,6 +76,12 @@ $('#form').html(form.render().$el);
 
 ### jQuery UI datepicker editor
 
+#### Schema options
+
+`editorOptions` - jQuery UI datepicker options
+
+#### CoffeeScript Example
+
 ~~~coffee-script
 form = new Backbone.Form
   schema:
@@ -76,6 +92,8 @@ form = new Backbone.Form
         numberOfMonths: [2, 3]
 $('#form').html form.render().$el
 ~~~
+
+#### JavaScript Example
 
 ~~~js
 var form = new Backbone.Form({
@@ -96,6 +114,16 @@ $('#form').html(form.render().$el);
 
 ### jQuery UI selectmenu editor
 
+#### Schema options
+
+`options` - Array of strings or Backbone Collection
+
+`editorOptions` - jQuery UI selectmenu options
+
+`delay` - Delay of render selectmenu. This widget must be rendered in main DOM tree, not in virtual DOM element.
+
+#### CoffeeScript Example
+
 ~~~coffee-script
 form = new Backbone.Form
   schema:
@@ -106,6 +134,8 @@ form = new Backbone.Form
       delay: 200
 $('#form').html form.render().$el
 ~~~
+
+#### JavaScript Example
 
 ~~~js
 var form = new Backbone.Form({
