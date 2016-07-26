@@ -15,7 +15,8 @@
     "autocomplete",
     "datepicker",
     "selectmenu",
-    "slider"
+    "slider",
+    "spinner"
   ],
   "homepage": "https://github.com/tomi77/backbone-forms-jquery-ui",
   "ignore": [

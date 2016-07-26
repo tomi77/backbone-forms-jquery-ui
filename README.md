@@ -186,8 +186,51 @@ $('#form').html(form.render().$el);
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/slider.html)
 
+### jQuery UI spinner editor
+
+#### Schema options
+
+`editorOptions` - jQuery UI selectmenu options
+
+`delay` - Delay of render spinner. This widget must be rendered in main DOM tree, not in virtual DOM element.
+
+#### CoffeeScript Example
+
+~~~coffee-script
+form = new Backbone.Form
+  schema:
+    val:
+      type: 'jqueryui.spinner'
+      title: 'Val'
+      editorOptions:
+        min: 0
+        max: 100
+        page: 10
+$('#form').html form.render().$el
+~~~
+
+#### JavaScript Example
+
+~~~js
+var form = new Backbone.Form({
+schema: {
+  val: {
+    type: 'jqueryui.spinner',
+    title: 'Val',
+    editorOptions: {
+      min: 0,
+      max: 100,
+      page: 10
+    }
+  }
+}
+});
+$('#form').html(form.render().$el);
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/spinner.html)
+
 ## TODO
 
-* spinner
 * controlgroup
 * checkboxradio
