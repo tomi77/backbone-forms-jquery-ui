@@ -204,17 +204,17 @@ form = new Backbone.Form
 
 ~~~js
 var form = new Backbone.Form({
-schema: {
-  val: {
-    type: 'jqueryui.spinner',
-    title: 'Val',
-    editorOptions: {
-      min: 0,
-      max: 100,
-      page: 10
+  schema: {
+    val: {
+      type: 'jqueryui.spinner',
+      title: 'Val',
+      editorOptions: {
+        min: 0,
+        max: 100,
+        page: 10
+      }
     }
   }
-}
 });
 ~~~
 
