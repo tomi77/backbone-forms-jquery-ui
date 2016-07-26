@@ -40,7 +40,6 @@ form = new Backbone.Form
       options: states
       editorOptions:
         minLength: 2
-$('#form').html form.render().$el
 ~~~
 
 #### JavaScript Example
@@ -58,18 +57,17 @@ var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 ];
 
 var form = new Backbone.Form({
-schema: {
-  state: {
-    type: 'jqueryui.autocomplete',
-    title: 'State',
-    options: states,
-    editorOptions: {
-      minLength: 2
+  schema: {
+    state: {
+      type: 'jqueryui.autocomplete',
+      title: 'State',
+      options: states,
+      editorOptions: {
+        minLength: 2
+      }
     }
   }
-}
 });
-$('#form').html(form.render().$el);
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/autocomplete.html)
@@ -90,24 +88,22 @@ form = new Backbone.Form
       title: 'Date'
       editorOptions:
         numberOfMonths: [2, 3]
-$('#form').html form.render().$el
 ~~~
 
 #### JavaScript Example
 
 ~~~js
 var form = new Backbone.Form({
-schema: {
-  date: {
-    type: 'jqueryui.datepicker',
-    title: 'Date',
-    editorOptions: {
-      numberOfMonths: [2, 3]
+  schema: {
+    date: {
+      type: 'jqueryui.datepicker',
+      title: 'Date',
+      editorOptions: {
+        numberOfMonths: [2, 3]
+      }
     }
   }
-}
 });
-$('#form').html(form.render().$el);
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/datepicker.html)
@@ -132,23 +128,21 @@ form = new Backbone.Form
       title: 'Speed'
       options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster']
       delay: 200
-$('#form').html form.render().$el
 ~~~
 
 #### JavaScript Example
 
 ~~~js
 var form = new Backbone.Form({
-schema: {
-  speed: {
-    type: 'jqueryui.selectmenu',
-    title: 'Speed',
-    options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster'],
-    delay: 200
+  schema: {
+    speed: {
+      type: 'jqueryui.selectmenu',
+      title: 'Speed',
+      options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster'],
+      delay: 200
+    }
   }
-}
 });
-$('#form').html(form.render().$el);
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/selectmenu.html)
@@ -167,21 +161,19 @@ form = new Backbone.Form
     val:
       type: 'jqueryui.slide'
       title: 'Val'
-$('#form').html form.render().$el
 ~~~
 
 #### JavaScript Example
 
 ~~~js
 var form = new Backbone.Form({
-schema: {
-  val: {
-    type: 'jqueryui.slide',
-    title: 'Val'
+  schema: {
+    val: {
+      type: 'jqueryui.slide',
+      title: 'Val'
+    }
   }
-}
 });
-$('#form').html(form.render().$el);
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/slider.html)
@@ -206,7 +198,6 @@ form = new Backbone.Form
         min: 0
         max: 100
         page: 10
-$('#form').html form.render().$el
 ~~~
 
 #### JavaScript Example
@@ -225,7 +216,6 @@ schema: {
   }
 }
 });
-$('#form').html(form.render().$el);
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/spinner.html)
