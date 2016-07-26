@@ -153,9 +153,41 @@ $('#form').html(form.render().$el);
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/selectmenu.html)
 
+### jQuery UI slider editor
+
+#### Schema options
+
+`editorOptions` - jQuery UI selectmenu options
+
+#### CoffeeScript Example
+
+~~~coffee-script
+form = new Backbone.Form
+  schema:
+    val:
+      type: 'jqueryui.slide'
+      title: 'Val'
+$('#form').html form.render().$el
+~~~
+
+#### JavaScript Example
+
+~~~js
+var form = new Backbone.Form({
+schema: {
+  val: {
+    type: 'jqueryui.slide',
+    title: 'Val'
+  }
+}
+});
+$('#form').html(form.render().$el);
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/slide.html)
+
 ## TODO
 
-* slider
 * spinner
 * controlgroup
 * checkboxradio

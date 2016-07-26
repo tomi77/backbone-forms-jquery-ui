@@ -14,7 +14,8 @@
     "editor",
     "autocomplete",
     "datepicker",
-    "selectmenu"
+    "selectmenu",
+    "slider"
   ],
   "homepage": "https://github.com/tomi77/backbone-forms-jquery-ui",
   "ignore": [
