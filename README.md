@@ -184,7 +184,7 @@ schema: {
 $('#form').html(form.render().$el);
 ~~~
 
-[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/slide.html)
+[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/slider.html)
 
 ## TODO
 
