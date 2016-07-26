@@ -152,3 +152,10 @@ $('#form').html(form.render().$el);
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/selectmenu.html)
+
+## TODO
+
+* slider
+* spinner
+* controlgroup
+* checkboxradio
