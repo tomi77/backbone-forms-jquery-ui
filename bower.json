@@ -13,6 +13,7 @@
     "jquery-ui",
     "editor",
     "autocomplete",
+    "checkboxradio",
     "datepicker",
     "selectmenu",
     "slider",

@@ -108,6 +108,73 @@ var form = new Backbone.Form({
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/datepicker.html)
 
+### jQuery UI checkboxradio editors
+
+#### Schema options
+
+`editorOptions` - jQuery UI selectmenu options
+
+`delay` - Delay of render selectmenu. This widget must be rendered in main DOM tree, not in virtual DOM element.
+
+#### CoffeeScript Example
+
+~~~coffee-script
+form = new Backbone.Form
+  schema:
+    val:
+      type: 'jqueryui.checkbox'
+      title: 'Val'
+
+form = new Backbone.Form
+  schema:
+    val:
+      type: 'jqueryui.checkboxes'
+      title: 'Val'
+      options: ['1', '2', '3']
+
+form = new Backbone.Form
+  schema:
+    val:
+      type: 'jqueryui.radio'
+      title: 'Val'
+      options: ['1', '2', '3']
+~~~
+
+#### JavaScript Example
+
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    val: {
+      type: 'jqueryui.checkbox',
+      title: 'Val'
+    }
+  }
+});
+
+form = new Backbone.Form({
+  schema: {
+    val: {
+      type: 'jqueryui.checkboxes',
+      title: 'Val',
+      options: ['1', '2', '3']
+    }
+  }
+});
+
+form = new Backbone.Form({
+  schema: {
+    val: {
+      type: 'jqueryui.radio',
+      title: 'Val',
+      options: ['1', '2', '3']
+    }
+  }
+});
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/checkboxradio.html)
+
 ### jQuery UI selectmenu editor
 
 #### Schema options
@@ -222,4 +289,4 @@ var form = new Backbone.Form({
 
 ## TODO
 
-* checkboxradio
+* fix events
