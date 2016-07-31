@@ -25,15 +25,29 @@
 })(this, function(_, Backbone, Form) {
   Form.editors['jqueryui.selectmenu'] = Form.editors.Select.extend({
     className: 'bbf-jui-selectmenu',
+    events: {
+      'selectmenuopen': 'focus',
+      'selectmenuclose': 'blur',
+      'selectmenuselect': 'change'
+    },
     renderOptions: function(options) {
       var f;
       f = (function(_this) {
         return function() {
-          return _this.$el.selectmenu(_this.schema.editorOptions || {});
+          _this.$el.selectmenu(_this.schema.editorOptions || {});
         };
       })(this);
       _.delay(f, this.schema.delay || 100);
       Form.editors.Select.prototype.renderOptions.call(this, options);
+    },
+    focus: function() {
+      this.trigger('focus', this);
+    },
+    blur: function() {
+      this.trigger('blur', this);
+    },
+    change: function() {
+      this.trigger('change', this);
     }
   });
 });

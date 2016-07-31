@@ -23,10 +23,29 @@
   Form.editors['jqueryui.selectmenu'] = Form.editors.Select.extend
     className: 'bbf-jui-selectmenu'
 
+    events:
+      'selectmenuopen': 'focus'
+      'selectmenuclose': 'blur'
+      'selectmenuselect': 'change'
+
     renderOptions: (options) ->
-      f = () => @$el.selectmenu @schema.editorOptions or {}
+      f = () =>
+        @$el.selectmenu @schema.editorOptions or {}
+        return
       _.delay f, @schema.delay or 100
       Form.editors.Select::renderOptions.call @, options
+      return
+
+    focus: () ->
+      @trigger 'focus', @
+      return
+
+    blur: () ->
+      @trigger 'blur', @
+      return
+
+    change: () ->
+      @trigger 'change', @
       return
 
   return
