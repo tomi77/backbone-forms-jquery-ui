@@ -23,6 +23,11 @@
   Form.editors['jqueryui.slider'] = Form.Editor.extend
     className: 'bbf-jui-slider'
 
+    events:
+      'slidestart': 'focus'
+      'slidestop': 'blur'
+      'slidechange': 'change'
+
     initialize: (options) ->
       Form.editors.Base::initialize.call @, options
 
@@ -41,12 +46,16 @@
       @$el.datepicker 'option', 'value', value
       return
 
-#    focus: () ->
-#      unless @hasFocus then @trigger 'focus', @
-#      return
-#
-#    blur: () ->
-#      if @hasFocus then @trigger 'blur', @
-#      return
+    focus: () ->
+      @trigger 'focus', @
+      return
+
+    blur: () ->
+      @trigger 'blur', @
+      return
+
+    change: () ->
+      @trigger 'change', @
+      return
 
   return

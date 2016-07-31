@@ -25,6 +25,11 @@
 })(this, function(Form) {
   Form.editors['jqueryui.slider'] = Form.Editor.extend({
     className: 'bbf-jui-slider',
+    events: {
+      'slidestart': 'focus',
+      'slidestop': 'blur',
+      'slidechange': 'change'
+    },
     initialize: function(options) {
       Form.editors.Base.prototype.initialize.call(this, options);
       this.editorOptions = this.schema.editorOptions || {};
@@ -39,6 +44,15 @@
     },
     setValue: function(value) {
       this.$el.datepicker('option', 'value', value);
+    },
+    focus: function() {
+      this.trigger('focus', this);
+    },
+    blur: function() {
+      this.trigger('blur', this);
+    },
+    change: function() {
+      this.trigger('change', this);
     }
   });
 });
