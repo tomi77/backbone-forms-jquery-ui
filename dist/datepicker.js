@@ -27,13 +27,37 @@
     className: 'bbf-jui-datepicker',
     tagName: 'input',
     initialize: function(options) {
-      _.bindAll(this, 'focus', 'blur', 'change');
+      var prevBeforeShow, prevOnClose, prevOnSelect;
       Form.editors.Base.prototype.initialize.call(this, options);
-      this.editorOptions = _.extend(this.schema.editorOptions || {}, {
-        onSelect: this.change,
-        onClose: this.blur,
-        beforeShow: this.focus
-      });
+      this.editorOptions = this.schema.editorOptions || {};
+      prevOnSelect = this.editorOptions.onSelect;
+      this.editorOptions.onSelect = (function(_this) {
+        return function(dateText, inst) {
+          _this.trigger('change', _this, dateText, inst);
+          if (prevOnSelect) {
+            prevOnSelect.call(_this.el, dateText, inst);
+          }
+        };
+      })(this);
+      prevOnClose = this.editorOptions.onClose;
+      this.editorOptions.onClose = (function(_this) {
+        return function(dateText, inst) {
+          _this.trigger('blur', _this, dateText, inst);
+          if (prevOnClose) {
+            prevOnClose.call(_this.el, dateText, inst);
+          }
+        };
+      })(this);
+      prevBeforeShow = this.editorOptions.beforeShow;
+      this.editorOptions.beforeShow = (function(_this) {
+        return function(input, inst) {
+          _this.trigger('focus', _this, input, inst);
+          if (prevBeforeShow) {
+            return prevBeforeShow.call(_this.el, input, inst);
+          }
+          return {};
+        };
+      })(this);
       this.value = (function() {
         switch (false) {
           case !(this.value && _.isDate(this.value)):
@@ -60,20 +84,6 @@
     },
     setValue: function(value) {
       this.$el.datepicker('setDate', value);
-    },
-    focus: function() {
-      if (!this.hasFocus) {
-        this.trigger('focus', this);
-      }
-      return {};
-    },
-    blur: function() {
-      if (this.hasFocus) {
-        this.trigger('blur', this);
-      }
-    },
-    change: function() {
-      this.trigger('change', this);
     }
   });
 });

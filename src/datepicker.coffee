@@ -26,14 +26,27 @@
     tagName: 'input'
 
     initialize: (options) ->
-      _.bindAll @, 'focus', 'blur', 'change'
-
       Form.editors.Base::initialize.call @, options
 
-      @editorOptions = _.extend @schema.editorOptions or {},
-        onSelect: @change
-        onClose: @blur
-        beforeShow: @focus
+      @editorOptions = @schema.editorOptions or {}
+
+      prevOnSelect = @editorOptions.onSelect
+      @editorOptions.onSelect = (dateText, inst) =>
+        @trigger 'change', @, dateText, inst
+        if prevOnSelect then prevOnSelect.call @el, dateText, inst
+        return
+
+      prevOnClose = @editorOptions.onClose
+      @editorOptions.onClose = (dateText, inst) =>
+        @trigger 'blur', @, dateText, inst
+        if prevOnClose then prevOnClose.call @el, dateText, inst
+        return
+
+      prevBeforeShow = @editorOptions.beforeShow
+      @editorOptions.beforeShow = (input, inst) =>
+        @trigger 'focus', @, input, inst
+        if prevBeforeShow then return prevBeforeShow.call @el, input, inst
+        return {}
 
       @value = switch
         when @value and _.isDate @value then @value
@@ -56,18 +69,6 @@
 
     setValue: (value) ->
       @$el.datepicker 'setDate', value
-      return
-
-    focus: () ->
-      unless @hasFocus then @trigger 'focus', @
-      {}
-
-    blur: () ->
-      if @hasFocus then @trigger 'blur', @
-      return
-
-    change: () ->
-      @trigger 'change', @
       return
 
   return
