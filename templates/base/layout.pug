@@ -1,0 +1,51 @@
+mixin menu(name)
+  if name == 'home'
+    li.active: a(href="index.html") Home
+  else
+    li: a(href="index.html") Home
+
+  if name == 'autocomplete'
+    li.active: a(href="autocomplete.html") autocomplete
+  else
+    li: a(href="autocomplete.html") autocomplete
+
+  if name == 'datepicker'
+    li.active: a(href="datepicker.html") datepicker
+  else
+    li: a(href="datepicker.html") datepicker
+
+  if name == 'selectmenu'
+    li.active: a(href="selectmenu.html") selectmenu
+  else
+    li: a(href="selectmenu.html") selectmenu
+
+  if name == 'slider'
+    li.active: a(href="slider.html") slider
+  else
+    li: a(href="slider.html") slider
+
+  if name == 'spinner'
+    li.active: a(href="spinner.html") spinner
+  else
+    li: a(href="spinner.html") spinner
+
+  if name == 'checkboxradio'
+    li.active: a(href="checkboxradio.html") checkboxradio
+  else
+    li: a(href="checkboxradio.html") checkboxradio
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    block title
+    link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css")
+    block extraheaders
+  body
+    nav.navbar.navbar-default
+      .container
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            block menu
+              +menu('home')
+    block content

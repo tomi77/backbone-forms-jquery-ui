@@ -1,0 +1,98 @@
+extends ./base/layout
+
+block title
+  title Backbone-Forms jQueryUI checkboxradio example
+
+block menu
+  +menu('checkboxradio')
+
+block extraheaders
+  script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+  script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js")
+  script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js")
+  script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.0/backbone-forms.min.js")
+  script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js")
+  script(type="text/javascript" src="checkboxradio.js")
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.0/templates/bootstrap3.css")
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.css")
+  link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.theme.min.css")
+  link(rel="stylesheet" href="jquery-ui.css")
+  script(type="text/javascript").
+    var example = function () {
+      var form1 = new Backbone.Form({
+        schema: {
+          val1: {
+            type: 'jqueryui.checkbox',
+            title: 'Val'
+          }
+        }
+      });
+      $('#form1').html(form1.render().$el);
+
+      var form2 = new Backbone.Form({
+        schema: {
+          val2: {
+            type: 'jqueryui.checkboxes',
+            title: 'Val',
+            options: ['1', '2', '3']
+          }
+        }
+      });
+      $('#form2').html(form2.render().$el);
+
+      var form3 = new Backbone.Form({
+        schema: {
+          val3: {
+            type: 'jqueryui.radio',
+            title: 'Val',
+            options: ['1', '2', '3']
+          }
+        }
+      });
+      $('#form3').html(form3.render().$el);
+    };
+    document.addEventListener("DOMContentLoaded", example, false);
+    window.addEventListener("load", example, false);
+
+block content
+  .container
+    h3 Example:
+    #form1(style="padding-bottom: 10px;")
+    h3 Code:
+    pre.
+      var form = new Backbone.Form({
+        schema: {
+          val: {
+            type: 'jqueryui.checkbox',
+            title: 'Val'
+          }
+        }
+      });
+
+    h3 Example:
+    #form2(style="padding-bottom: 10px;")
+    h3 Code:
+    pre.
+      var form = new Backbone.Form({
+        schema: {
+          val: {
+            type: 'jqueryui.checkboxes',
+            title: 'Val',
+            options: ['1', '2', '3']
+          }
+        }
+      });
+
+    h3 Example:
+    #form3(style="padding-bottom: 10px;")
+    h3 Code:
+    pre.
+      var form = new Backbone.Form({
+        schema: {
+          val: {
+            type: 'jqueryui.radio',
+            title: 'Val',
+            options: ['1', '2', '3']
+          }
+        }
+      });

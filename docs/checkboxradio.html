@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Backbone-Forms jQueryUI checkboxradio example</title><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.0/backbone-forms.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script><script type="text/javascript" src="checkboxradio.js"></script><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.0/templates/bootstrap3.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.theme.min.css"><link rel="stylesheet" href="jquery-ui.css"><script type="text/javascript">var example = function () {
+  var form1 = new Backbone.Form({
+    schema: {
+      val1: {
+        type: 'jqueryui.checkbox',
+        title: 'Val'
+      }
+    }
+  });
+  $('#form1').html(form1.render().$el);
+
+  var form2 = new Backbone.Form({
+    schema: {
+      val2: {
+        type: 'jqueryui.checkboxes',
+        title: 'Val',
+        options: ['1', '2', '3']
+      }
+    }
+  });
+  $('#form2').html(form2.render().$el);
+
+  var form3 = new Backbone.Form({
+    schema: {
+      val3: {
+        type: 'jqueryui.radio',
+        title: 'Val',
+        options: ['1', '2', '3']
+      }
+    }
+  });
+  $('#form3').html(form3.render().$el);
+};
+document.addEventListener("DOMContentLoaded", example, false);
+window.addEventListener("load", example, false);
+</script></head><body><nav class="navbar navbar-default"><div class="container"><div class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="index.html">Home</a></li><li><a href="autocomplete.html">autocomplete</a></li><li><a href="datepicker.html">datepicker</a></li><li><a href="selectmenu.html">selectmenu</a></li><li><a href="slider.html">slider</a></li><li><a href="spinner.html">spinner</a></li><li class="active"><a href="checkboxradio.html">checkboxradio</a></li></ul></div></div></nav><div class="container"><h3>Example:</h3><div id="form1" style="padding-bottom: 10px"></div><h3>Code:</h3><pre>var form = new Backbone.Form({
+  schema: {
+    val: {
+      type: 'jqueryui.checkbox',
+      title: 'Val'
+    }
+  }
+});
+</pre><h3>Example:</h3><div id="form2" style="padding-bottom: 10px"></div><h3>Code:</h3><pre>var form = new Backbone.Form({
+  schema: {
+    val: {
+      type: 'jqueryui.checkboxes',
+      title: 'Val',
+      options: ['1', '2', '3']
+    }
+  }
+});
+</pre><h3>Example:</h3><div id="form3" style="padding-bottom: 10px"></div><h3>Code:</h3><pre>var form = new Backbone.Form({
+  schema: {
+    val: {
+      type: 'jqueryui.radio',
+      title: 'Val',
+      options: ['1', '2', '3']
+    }
+  }
+});</pre></div></body></html>
