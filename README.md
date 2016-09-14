@@ -1,6 +1,7 @@
 # Backbone-Forms jQuery UI editors
 
 [![Code Climate](https://codeclimate.com/github/tomi77/backbone-forms-jquery-ui/badges/gpa.svg)](https://codeclimate.com/github/tomi77/backbone-forms-jquery-ui)
+[![dependencies Status](https://david-dm.org/tomi77/backbone-forms-jquery-ui/status.svg)](https://david-dm.org/tomi77/backbone-forms-jquery-ui)
 
 ## Installation
 
