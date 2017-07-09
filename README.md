@@ -19,31 +19,7 @@ bower install backbone-forms-jquery-ui
 
 `editorOptions` - jQuery UI autocomplete options
 
-#### CoffeeScript Example
-
-~~~coffee-script
-states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-  'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-  'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-  'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-  'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-]
-
-form = new Backbone.Form
-  schema:
-    states:
-      type: 'jqueryui.autocomplete'
-      title: 'States'
-      options: states
-      editorOptions:
-        minLength: 2
-~~~
-
-#### JavaScript Example
+#### Example
 
 ~~~js
 var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
@@ -79,19 +55,7 @@ var form = new Backbone.Form({
 
 `editorOptions` - jQuery UI datepicker options
 
-#### CoffeeScript Example
-
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    date:
-      type: 'jqueryui.datepicker'
-      title: 'Date'
-      editorOptions:
-        numberOfMonths: [2, 3]
-~~~
-
-#### JavaScript Example
+#### Example
 
 ~~~js
 var form = new Backbone.Form({
@@ -117,31 +81,7 @@ var form = new Backbone.Form({
 
 `delay` - Delay of render selectmenu. This widget must be rendered in main DOM tree, not in virtual DOM element.
 
-#### CoffeeScript Example
-
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    val:
-      type: 'jqueryui.checkbox'
-      title: 'Val'
-
-form = new Backbone.Form
-  schema:
-    val:
-      type: 'jqueryui.checkboxes'
-      title: 'Val'
-      options: ['1', '2', '3']
-
-form = new Backbone.Form
-  schema:
-    val:
-      type: 'jqueryui.radio'
-      title: 'Val'
-      options: ['1', '2', '3']
-~~~
-
-#### JavaScript Example
+#### Example
 
 ~~~js
 var form = new Backbone.Form({
@@ -186,19 +126,7 @@ form = new Backbone.Form({
 
 `delay` - Delay of render selectmenu. This widget must be rendered in main DOM tree, not in virtual DOM element.
 
-#### CoffeeScript Example
-
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    speed:
-      type: 'jqueryui.selectmenu'
-      title: 'Speed'
-      options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster']
-      delay: 200
-~~~
-
-#### JavaScript Example
+#### Example
 
 ~~~js
 var form = new Backbone.Form({
@@ -221,17 +149,7 @@ var form = new Backbone.Form({
 
 `editorOptions` - jQuery UI selectmenu options
 
-#### CoffeeScript Example
-
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    val:
-      type: 'jqueryui.slide'
-      title: 'Val'
-~~~
-
-#### JavaScript Example
+#### Example
 
 ~~~js
 var form = new Backbone.Form({
@@ -254,21 +172,7 @@ var form = new Backbone.Form({
 
 `delay` - Delay of render spinner. This widget must be rendered in main DOM tree, not in virtual DOM element.
 
-#### CoffeeScript Example
-
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    val:
-      type: 'jqueryui.spinner'
-      title: 'Val'
-      editorOptions:
-        min: 0
-        max: 100
-        page: 10
-~~~
-
-#### JavaScript Example
+#### Example
 
 ~~~js
 var form = new Backbone.Form({
