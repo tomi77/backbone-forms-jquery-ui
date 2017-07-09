@@ -2,7 +2,13 @@
   "name": "backbone-forms-jquery-ui",
   "description": "A Backbone-Forms jQuery UI related editors",
   "main": [
-    "dist/jquery-ui.css"
+    "autocomplete.js",
+    "checkboxradio.js",
+    "datepicker.js",
+    "selectmenu.js",
+    "slider.js",
+    "spinner.js",
+    "jquery-ui.css"
   ],
   "authors": [
     "Tomasz Jakub Rup"
