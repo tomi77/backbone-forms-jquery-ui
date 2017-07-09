@@ -2,13 +2,13 @@
   "dependencies": {},
   "devDependencies": {
     "coffee-script": "^1.10.0",
-    "node-sass": "^3.8.0",
+    "node-sass": "^4.5.0",
     "pug-cli": "^1.0.0-alpha6"
   },
   "scripts": {
     "build": "for CMD in \"build-css\" \"build-js\"; do npm run ${CMD}; done",
     "build-css": "node-sass --output-style expanded -- src/jquery-ui.sass > jquery-ui.css",
     "build-js": "coffee --bare --compile --no-header --output . -- src/*.coffee",
-    "build-docs": "pug --out docs templates/*.pug; coffee --bare --compile --no-header --output docs -- src/*.coffee"
+    "build-docs": "pug --out docs templates/*.pug; coffee --bare --compile --no-header --output docs -- src/*.coffee; node-sass --output-style expanded -- src/jquery-ui.sass > docs/jquery-ui.css"
   }
 }
