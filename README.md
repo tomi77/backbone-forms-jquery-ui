@@ -195,3 +195,4 @@ var form = new Backbone.Form({
 ## TODO
 
 * fix events
+* remove `delay` options
