@@ -1,5 +1,6 @@
 # Backbone-Forms jQuery UI editors
 
+[![Build Status](https://travis-ci.org/tomi77/backbone-forms-jquery-ui.svg?branch=master)](https://travis-ci.org/tomi77/backbone-forms-jquery-ui)
 [![Code Climate](https://codeclimate.com/github/tomi77/backbone-forms-jquery-ui/badges/gpa.svg)](https://codeclimate.com/github/tomi77/backbone-forms-jquery-ui)
 [![dependencies Status](https://david-dm.org/tomi77/backbone-forms-jquery-ui/status.svg)](https://david-dm.org/tomi77/backbone-forms-jquery-ui)
 [![devDependencies Status](https://david-dm.org/tomi77/backbone-forms-jquery-ui/dev-status.svg)](https://david-dm.org/tomi77/backbone-forms-jquery-ui?type=dev)
