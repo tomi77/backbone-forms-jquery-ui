@@ -26,27 +26,36 @@ block extraheaders
             options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster'],
             delay: 200
           }
-        }
+        },
+        model: new Backbone.Model({
+          speed: 'Slow'
+        })
+      });
+      var editor = form.getEditor('speed');
+      editor.on('change', function(editor) {
+        $('.change span').html(editor.getValue());
+      }).on('focus', function(editor) {
+        $('.focus').removeClass('hidden');
+        $('.blur').addClass('hidden');
+      }).on('blur', function(editor) {
+        $('.focus').addClass('hidden');
+        $('.blur').removeClass('hidden');
       });
       $('#form').html(form.render().$el);
+      form.getEditor('speed').trigger('change', editor).trigger('blur', editor);
     };
     document.addEventListener("DOMContentLoaded", example, false);
     window.addEventListener("load", example, false);
 
 block content
   .container
-    h3 Example:
-    #form(style="padding-bottom: 10px;")
-    h3 Code:
-    pre.
-      var form = new Backbone.Form({
-        schema: {
-          speed: {
-            type: 'jqueryui.selectmenu',
-            title: 'Speed',
-            options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster'],
-            delay: 200
-          }
-        }
-      });
-      $('#form').html(form.render().$el);
+    .row
+      h3 jqueryui.selectmenu
+      .col-md-6
+        #form(style="padding-bottom: 10px;")
+      .col-md-6
+        p
+          span.focus.label.label-success.hidden focus
+          span.blur.label.label-success.hidden blur
+        p.change
+          span.label.label-primary

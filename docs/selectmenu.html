@@ -7,20 +7,24 @@
         options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster'],
         delay: 200
       }
-    }
+    },
+    model: new Backbone.Model({
+      speed: 'Slow'
+    })
+  });
+  var editor = form.getEditor('speed');
+  editor.on('change', function(editor) {
+    $('.change span').html(editor.getValue());
+  }).on('focus', function(editor) {
+    $('.focus').removeClass('hidden');
+    $('.blur').addClass('hidden');
+  }).on('blur', function(editor) {
+    $('.focus').addClass('hidden');
+    $('.blur').removeClass('hidden');
   });
   $('#form').html(form.render().$el);
+  form.getEditor('speed').trigger('change', editor).trigger('blur', editor);
 };
 document.addEventListener("DOMContentLoaded", example, false);
 window.addEventListener("load", example, false);
-</script></head><body><nav class="navbar navbar-default"><div class="container"><div class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="index.html">Home</a></li><li><a href="autocomplete.html">autocomplete</a></li><li><a href="datepicker.html">datepicker</a></li><li class="active"><a href="selectmenu.html">selectmenu</a></li><li><a href="slider.html">slider</a></li><li><a href="spinner.html">spinner</a></li><li><a href="checkboxradio.html">checkboxradio</a></li></ul></div></div></nav><div class="container"><h3>Example:</h3><div id="form" style="padding-bottom: 10px"></div><h3>Code:</h3><pre>var form = new Backbone.Form({
-  schema: {
-    speed: {
-      type: 'jqueryui.selectmenu',
-      title: 'Speed',
-      options: ['Slower', 'Slow', 'Medium', 'Fast', 'Faster'],
-      delay: 200
-    }
-  }
-});
-$('#form').html(form.render().$el);</pre></div></body></html>
+</script></head><body><nav class="navbar navbar-default"><div class="container"><div class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="index.html">Home</a></li><li><a href="autocomplete.html">autocomplete</a></li><li><a href="datepicker.html">datepicker</a></li><li class="active"><a href="selectmenu.html">selectmenu</a></li><li><a href="slider.html">slider</a></li><li><a href="spinner.html">spinner</a></li><li><a href="checkboxradio.html">checkboxradio</a></li></ul></div></div></nav><div class="container"><div class="row"><h3>jqueryui.selectmenu</h3><div class="col-md-6"><div id="form" style="padding-bottom: 10px"></div></div><div class="col-md-6"><p><span class="focus label label-success hidden">focus</span><span class="blur label label-success hidden">blur</span></p><p class="change"><span class="label label-primary"></span></p></div></div></div></body></html>

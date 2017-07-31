@@ -24,24 +24,49 @@
     className: 'bbf-jui-selectmenu'
 
     events:
-      'selectmenuopen': 'focus'
-      'selectmenuclose': 'blur'
-      'selectmenuselect': 'change'
+      'selectmenuopen': () ->
+        @trigger 'focus', @
+        return
+      'selectmenuclose': () ->
+        @trigger 'blur', @
+        return
+      'selectmenuselect': () ->
+        @trigger 'change', @
+        return
+
+    initialize: (options) ->
+      Form.editors.Select::initialize.call @, options
+
+      @editorOptions = @schema.editorOptions or {}
+
+      [@$select, @$el] = [@$el, Backbone.$ '<div>']
+      @el = @$el[0]
+      @$el.html @$select
+
+      return
 
     renderOptions: (options) ->
-      f = () =>
-        @$el.selectmenu @schema.editorOptions or {}
-        return
-      _.delay f, @schema.delay or 100
-      Form.editors.Select::renderOptions.call @, options
+      html = @_getOptionsHtml options
+      @$select.html html
+      @$select.selectmenu @editorOptions
+      @setValue @value
+      return
+
+    getValue: () -> @$select.val()
+
+    setValue: (val) ->
+      @$select.val val
+      @$select.selectmenu 'refresh'
       return
 
     focus: () ->
-      @trigger 'focus', @
+      if @hasFocus then return
+      @$select.selectmenu 'open'
       return
 
     blur: () ->
-      @trigger 'blur', @
+      if not @hasFocus then return
+      @$select.selectmenu 'close'
       return
 
     change: () ->

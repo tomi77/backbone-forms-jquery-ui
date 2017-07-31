@@ -7,10 +7,13 @@
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",
+    "cucumber": "^2.3.1",
     "node-sass": "^4.5.0",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "selenium-webdriver": "^3.5.0"
   },
   "scripts": {
+    "test": "cucumber.js --compiler coffee:coffee-script/register",
     "build": "for CMD in \"build-css\" \"build-js\"; do npm run ${CMD}; done",
     "build-css": "node-sass --output-style expanded -- src/jquery-ui.sass > jquery-ui.css",
     "build-js": "coffee --bare --compile --no-header --output . -- src/*.coffee",

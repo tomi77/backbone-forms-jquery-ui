@@ -26,25 +26,49 @@
   Form.editors['jqueryui.selectmenu'] = Form.editors.Select.extend({
     className: 'bbf-jui-selectmenu',
     events: {
-      'selectmenuopen': 'focus',
-      'selectmenuclose': 'blur',
-      'selectmenuselect': 'change'
+      'selectmenuopen': function() {
+        this.trigger('focus', this);
+      },
+      'selectmenuclose': function() {
+        this.trigger('blur', this);
+      },
+      'selectmenuselect': function() {
+        this.trigger('change', this);
+      }
+    },
+    initialize: function(options) {
+      var ref;
+      Form.editors.Select.prototype.initialize.call(this, options);
+      this.editorOptions = this.schema.editorOptions || {};
+      ref = [this.$el, Backbone.$('<div>')], this.$select = ref[0], this.$el = ref[1];
+      this.el = this.$el[0];
+      this.$el.html(this.$select);
     },
     renderOptions: function(options) {
-      var f;
-      f = (function(_this) {
-        return function() {
-          _this.$el.selectmenu(_this.schema.editorOptions || {});
-        };
-      })(this);
-      _.delay(f, this.schema.delay || 100);
-      Form.editors.Select.prototype.renderOptions.call(this, options);
+      var html;
+      html = this._getOptionsHtml(options);
+      this.$select.html(html);
+      this.$select.selectmenu(this.editorOptions);
+      this.setValue(this.value);
+    },
+    getValue: function() {
+      return this.$select.val();
+    },
+    setValue: function(val) {
+      this.$select.val(val);
+      this.$select.selectmenu('refresh');
     },
     focus: function() {
-      this.trigger('focus', this);
+      if (this.hasFocus) {
+        return;
+      }
+      this.$select.selectmenu('open');
     },
     blur: function() {
-      this.trigger('blur', this);
+      if (!this.hasFocus) {
+        return;
+      }
+      this.$select.selectmenu('close');
     },
     change: function() {
       this.trigger('change', this);
