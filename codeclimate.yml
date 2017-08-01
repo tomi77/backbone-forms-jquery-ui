@@ -12,4 +12,4 @@ ratings:
   - "src/*.sass"
 
 exclude_paths:
-  - dist/
+  - *.js
