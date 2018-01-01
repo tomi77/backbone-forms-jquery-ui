@@ -4,6 +4,11 @@ seleniumWebdriver = require 'selenium-webdriver'
 Until = seleniumWebdriver.until
 {By, WebElementCondition, Condition} = seleniumWebdriver
 
+forChangeEvent = new Condition '', (driver) ->
+  driver.findElement css: '.change .label'
+  .then (element) -> element.getText()
+  .then (text) -> text is 'Medium'
+
 defineSupportCode ({When, Then}) ->
   When 'Select new speed', () ->
     @driver.findElement css: '.ui-selectmenu-button'
@@ -11,9 +16,4 @@ defineSupportCode ({When, Then}) ->
     .then () => @driver.findElement xpath: "//li[contains(., 'Medium')]"
     .then (element) -> element.click()
 
-  Then 'selectmenu change event is fired', () ->
-    condition = new Condition '', (driver) ->
-      driver.findElement css: '.change .label'
-      .then (element) -> element.getText()
-      .then (text) -> text is 'Medium'
-    @driver.wait(condition)
+  Then 'selectmenu change event is fired', () -> @driver.wait forChangeEvent
