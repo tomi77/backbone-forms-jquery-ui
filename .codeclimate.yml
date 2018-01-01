@@ -13,3 +13,7 @@ ratings:
 
 exclude_paths:
   - *.js
+  - features/**/*.cofffee
+  - docs/*.js
+  - demo/*.coffee
+  - karma.conf.coffee
