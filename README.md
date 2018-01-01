@@ -5,6 +5,18 @@
 [![dependencies Status](https://david-dm.org/tomi77/backbone-forms-jquery-ui/status.svg)](https://david-dm.org/tomi77/backbone-forms-jquery-ui)
 [![devDependencies Status](https://david-dm.org/tomi77/backbone-forms-jquery-ui/dev-status.svg)](https://david-dm.org/tomi77/backbone-forms-jquery-ui?type=dev)
 
+## Table of contents
+
+* [Installation](#installation)
+* [Editors](#editors)
+  * [jQuery UI autocomplete editor](#jquery-ui-autocomplete-editor)
+  * [jQuery UI datepicker editor](#jquery-ui-datepicker-editor)
+  * [jQuery UI checkboxradio editors](#jquery-ui-checkboxradio-editors)
+  * [jQuery UI selectmenu editor](#jquery-ui-selectmenu-editor)
+  * [jQuery UI slider editor](#jquery-ui-slider-editor)
+  * [jQuery UI spinner editor](#jquery-ui-spinner-editor)
+* [TODO](#todo)
+
 ## Installation
 
 Bower:
