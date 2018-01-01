@@ -4,6 +4,6 @@ seleniumWebdriver = require 'selenium-webdriver'
 Until = seleniumWebdriver.until
 
 defineSupportCode ({Then}) ->
-  Then 'I should see selectmenu editor', () ->
-    condition = Until.elementLocated css: '.bbf-jui-selectmenu'
+  Then 'I should see {string} editor', (cssSelector) ->
+    condition = Until.elementLocated css: ".#{cssSelector}"
     @driver.wait(condition)

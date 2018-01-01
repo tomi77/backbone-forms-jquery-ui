@@ -23,7 +23,7 @@
     $('.blur').removeClass('hidden');
   });
   $('#form').html(form.render().$el);
-  form.getEditor('speed').trigger('change', editor).trigger('blur', editor);
+  editor.trigger('change', editor).trigger('blur', editor);
 };
 document.addEventListener("DOMContentLoaded", example, false);
 window.addEventListener("load", example, false);

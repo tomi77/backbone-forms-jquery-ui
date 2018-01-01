@@ -4,8 +4,8 @@ seleniumWebdriver = require 'selenium-webdriver'
 Until = seleniumWebdriver.until
 
 defineSupportCode ({Given}) ->
-  Given 'Show form', () ->
-    @driver.get 'https://tomi77.github.io/backbone-forms-jquery-ui/selectmenu.html'
+  Given 'Show {string} form', (menu) ->
+    @driver.get "https://tomi77.github.io/backbone-forms-jquery-ui/#{menu}.html"
     @driver.findElement css: '.container'
     .then Until.elementIsVisible.bind(Until)
     .then @driver.wait.bind(@driver)
