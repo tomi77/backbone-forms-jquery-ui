@@ -4,11 +4,19 @@ Feature: Test "jqueryui.selectmenu" editor
     Given Show "selectmenu" form
     Then I should see "bbf-jui-selectmenu" editor
 
-  Scenario: Events
+  Scenario: "focus" event
     Given Show "selectmenu" form
     When Click on the "ui-selectmenu-button" editor
     Then Focus event is fired
-    When Leaving the editor
+
+  Scenario: "blur" event
+    Given Show "selectmenu" form
+    When Click on the "ui-selectmenu-button" editor
+    And Leaving the editor
     Then Blur event is fired
-    When Select new speed
+
+  Scenario: "change" event
+    Given Show "selectmenu" form
+    When Click on the "ui-selectmenu-button" editor
+    And Select new speed
     Then selectmenu change event is fired

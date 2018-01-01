@@ -11,9 +11,8 @@ forChangeEvent = new Condition '', (driver) ->
 
 defineSupportCode ({When, Then}) ->
   When 'Select new speed', () ->
-    @driver.findElement css: '.ui-selectmenu-button'
-    .then (element) -> element.click()
-    .then () => @driver.findElement xpath: "//li[contains(., 'Medium')]"
+    @driver.wait Until.elementLocated By.xpath "//div[contains(., 'Medium')]"
+    .then () => @driver.findElement xpath: "//div[contains(., 'Medium')]/parent::li"
     .then (element) -> element.click()
 
   Then 'selectmenu change event is fired', () -> @driver.wait forChangeEvent

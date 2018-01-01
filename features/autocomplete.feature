@@ -4,11 +4,19 @@ Feature: Test "jqueryui.autocomplete" editor
     Given Show "autocomplete" form
     Then I should see "bbf-jui-autocomplete" editor
 
-  Scenario: Events
+  Scenario: "focus" event
     Given Show "autocomplete" form
     When Click on the "bbf-jui-autocomplete" editor
     Then Focus event is fired
-    When Leaving the editor
+
+  Scenario: "blur" event
+    Given Show "autocomplete" form
+    When Click on the "bbf-jui-autocomplete" editor
+    And Leaving the editor
     Then Blur event is fired
-    When Select new state
+
+  Scenario: "change" event
+    Given Show "autocomplete" form
+    When Click on the "bbf-jui-autocomplete" editor
+    And Select new state
     Then autocomplete change event is fired
