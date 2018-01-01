@@ -18,7 +18,10 @@ block extraheaders
   link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.theme.min.css")
   link(rel="stylesheet" href="jquery-ui.css")
   script(type="text/javascript").
+    var loaded = false;
     var example = function () {
+      if(loaded) return;
+      loaded = true;
       var form = new Backbone.Form({
         schema: {
           date: {
