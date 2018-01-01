@@ -24,8 +24,23 @@
   }
 })(this, function(_, Backbone, Form) {
   Form.editors['jqueryui.autocomplete'] = Form.editors.Text.extend({
-    tagName: 'input',
     className: 'bbf-jui-autocomplete',
+    events: {
+      change: 'determineChange',
+      focus: function() {
+        this.trigger('focus', this);
+      },
+      blur: function() {
+        this.trigger('blur', this);
+      },
+      autocompleteselect: function() {
+        setTimeout((function(_this) {
+          return function() {
+            _this.determineChange();
+          };
+        })(this), 0);
+      }
+    },
     initialize: function(options) {
       Form.editors.Text.prototype.initialize.call(this, options);
       this.editorOptions = this.schema.editorOptions || {};

@@ -21,9 +21,22 @@
   return
 ) @, (_, Backbone, Form) ->
   Form.editors['jqueryui.autocomplete'] = Form.editors.Text.extend
-    tagName: 'input'
-
     className: 'bbf-jui-autocomplete'
+
+    events:
+      change: 'determineChange'
+      focus: () ->
+        @trigger 'focus', @
+        return
+      blur: () ->
+        @trigger 'blur', @
+        return
+      autocompleteselect: () ->
+        setTimeout () =>
+          @determineChange()
+          return
+        , 0
+        return
 
     initialize: (options) ->
       Form.editors.Text::initialize.call @, options
