@@ -6,6 +6,10 @@ plugins:
     config: coffeelint.json
   scss-lint:
     enabled: true
+  fixme:
+    enabled: true
+  markdownlint:
+    enabled: true
 
 exclude_patterns:
   - "*.js"
