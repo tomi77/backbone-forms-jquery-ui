@@ -1,19 +1,15 @@
-engines:
+version: 2
+
+plugins:
   coffeelint:
     enabled: true
+    config: coffeelint.json
   scss-lint:
     enabled: true
-  fixme:
-    enabled: true
 
-ratings:
-  paths:
-  - "src/*.coffee"
-  - "src/*.sass"
-
-exclude_paths:
-  - *.js
-  - features/**/*.cofffee
-  - docs/*.js
-  - demo/*.coffee
-  - karma.conf.coffee
+exclude_patterns:
+  - "*.js"
+  - "features/**/*.cofffee"
+  - "docs/*.js"
+  - "demo/*.coffee"
+  - "karma.conf.coffee"
