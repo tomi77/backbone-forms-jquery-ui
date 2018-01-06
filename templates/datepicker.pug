@@ -23,6 +23,9 @@ block extraheaders
       if(loaded) return;
       loaded = true;
       var form = new Backbone.Form({
+        model: new Backbone.Model({
+          date: new Date(2018, 0, 1)
+        }),
         schema: {
           date: {
             type: 'jqueryui.datepicker',
@@ -33,26 +36,31 @@ block extraheaders
           }
         }
       });
+      var editor = form.getEditor('date');
+      editor.on('change', function(editor) {
+        $('.change span').html(editor.getValue().toLocaleFormat('%Y-%m-%d'));
+      }).on('focus', function(editor) {
+        $('.focus').removeClass('hidden');
+        $('.blur').addClass('hidden');
+      }).on('blur', function(editor) {
+        $('.focus').addClass('hidden');
+        $('.blur').removeClass('hidden');
+      });
       $('#form').html(form.render().$el);
+      editor.trigger('change', editor).trigger('blur', editor);
     };
     document.addEventListener("DOMContentLoaded", example, false);
     window.addEventListener("load", example, false);
 
 block content
   .container
-    h3 Example:
-    #form(style="padding-bottom: 10px;")
-    h3 Code:
-    pre.
-      var form = new Backbone.Form({
-        schema: {
-          date: {
-            type: 'jqueryui.datepicker',
-            title: 'Date',
-            editorOptions: {
-              numberOfMonths: [2, 3]
-            }
-          }
-        }
-      });
-      $('#form').html(form.render().$el);
+    .row
+      h3 jqueryui.datepicker
+      .col-md-6
+        #form(style="padding-bottom: 10px;")
+      .col-md-6
+        p
+          span.focus.label.label-success.hidden focus
+          span.blur.label.label-success.hidden blur
+        p.change
+          span.label.label-primary
