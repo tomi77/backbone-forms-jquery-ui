@@ -17,7 +17,7 @@
     "build": "for CMD in \"build-css\" \"build-js\"; do npm run ${CMD}; done",
     "build-css": "node-sass --output-style expanded -- src/jquery-ui.sass > jquery-ui.css",
     "build-js": "coffee --bare --compile --no-header --output . -- src/*.coffee",
-    "build-docs": "pug --out docs templates/*.pug; coffee --bare --compile --no-header --output docs -- src/*.coffee; node-sass --output-style expanded -- src/jquery-ui.sass > docs/jquery-ui.css"
+    "build-docs": "pug --out docs templates/*.pug"
   },
   "name": "backbone-forms-jquery-ui",
   "description": "",
