@@ -1,1 +1,4 @@
-../jquery-ui.css
+.bbf-jui-datepicker {
+  text-align: center;
+  width: 100px;
+}
