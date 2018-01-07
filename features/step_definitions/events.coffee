@@ -9,6 +9,14 @@ defineSupportCode ({When, Then}) ->
     @driver.findElement css: ".#{cssSelector}"
     .then (element) -> element.click()
 
+  When 'Start dragging {string} element', (cssSelector) ->
+    @driver.findElement css: ".#{cssSelector}"
+    .then (element) => @driver.actions().mouseDown(element).perform()
+
+  When 'Stop dragging {string} element', (cssSelector) ->
+    @driver.findElement css: ".#{cssSelector}"
+    .then (element) => @driver.actions().mouseUp(element).perform()
+
   Then 'Focus event is fired', () ->
     condition = new WebElementCondition '', (driver) ->
       driver.findElement css: '.blur'
