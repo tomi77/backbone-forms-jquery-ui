@@ -1,11 +1,8 @@
 seleniumWebdriver = require 'selenium-webdriver'
 {defineSupportCode} = require 'cucumber'
 
-Until = seleniumWebdriver.until
-{By, Key} = seleniumWebdriver
+{Key} = seleniumWebdriver
 
-defineSupportCode ({When, Then}) ->
+defineSupportCode ({When}) ->
   When 'Select new val', () ->
     @driver.actions().sendKeys([Key.ARROW_RIGHT]).perform()
-
-  Then 'slider change event is fired', () -> @driver.wait Until.elementTextIs @driver.findElement(css: '.change .label'), '1'

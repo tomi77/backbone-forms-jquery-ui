@@ -4,7 +4,7 @@ seleniumWebdriver = require 'selenium-webdriver'
 Until = seleniumWebdriver.until
 {By, Key, promise} = seleniumWebdriver
 
-defineSupportCode ({When, Then}) ->
+defineSupportCode ({When}) ->
   When 'Show the "bbf-jui-datepicker" editor', () ->
     @driver.executeScript "$('.bbf-jui-datepicker').datepicker('show')"
     .then () => @driver.findElement css: '#ui-datepicker-div'
@@ -18,5 +18,3 @@ defineSupportCode ({When, Then}) ->
       console.log elements[5]
       elements[5]
     .then (element) -> element.click()
-
-  Then 'datepicker change event is fired', () -> @driver.wait Until.elementTextIs @driver.findElement(css: '.change .label'), '2018-01-06'

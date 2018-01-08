@@ -19,4 +19,4 @@ Feature: Test "jqueryui.autocomplete" editor
     Given Show "autocomplete" form
     When Click on the "bbf-jui-autocomplete" editor
     And Select new state
-    Then autocomplete change event is fired
+    Then Change event is fired and show "Alaska"

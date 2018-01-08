@@ -19,4 +19,4 @@ Feature: Test "jqueryui.slider" editor
     Given Show "slider" form
     When Click on the "ui-slider-handle" editor
     And Select new val
-    Then slider change event is fired
+    Then Change event is fired and show "1"

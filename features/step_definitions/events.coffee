@@ -33,3 +33,5 @@ defineSupportCode ({When, Then}) ->
       .then (elements) -> elements[0]
       .then (element) -> element.isDisplayed().then (v) -> if v then null else element
     @driver.wait(condition)
+
+  Then 'Change event is fired and show {string}', (new_val) -> @driver.wait Until.elementTextIs @driver.findElement(css: '.change .label'), new_val

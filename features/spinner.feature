@@ -18,4 +18,4 @@ Feature: Test "jqueryui.spinner" editor
   Scenario: "change" event
     Given Show "spinner" form
     When Click on the "ui-spinner-up" editor
-    Then spinner change event is fired
+    Then Change event is fired and show "1"

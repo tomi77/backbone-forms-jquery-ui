@@ -20,4 +20,4 @@ Feature: Test "jqueryui.datepicker" editor
     Given Show "datepicker" form
     When Show the "bbf-jui-datepicker" editor
     And Select new date
-    Then datepicker change event is fired
+    Then Change event is fired and show "2018-01-06"

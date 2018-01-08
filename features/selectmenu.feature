@@ -19,4 +19,4 @@ Feature: Test "jqueryui.selectmenu" editor
     Given Show "selectmenu" form
     When Click on the "ui-selectmenu-button" editor
     And Select new speed
-    Then selectmenu change event is fired
+    Then Change event is fired and show "Medium"
