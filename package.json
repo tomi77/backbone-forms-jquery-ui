@@ -14,10 +14,10 @@
   },
   "scripts": {
     "test": "cucumber.js --compiler coffee:coffee-script/register --tags \"not @ignore\"",
-    "build": "for CMD in \"build-css\" \"build-js\"; do npm run ${CMD}; done",
-    "build-css": "node-sass --output-style expanded -- src/jquery-ui.sass > jquery-ui.css",
-    "build-js": "coffee --bare --compile --no-header --output . -- src/*.coffee",
-    "build-docs": "pug --out docs templates/*.pug; cp *.css docs/; cp *.js docs/"
+    "build": "for CMD in \"build:css\" \"build:js\" \"build:docs\"; do npm run ${CMD}; done",
+    "build:css": "node-sass --output-style expanded -- src/jquery-ui.sass > jquery-ui.css",
+    "build:js": "coffee --bare --compile --no-header --output . -- src/*.coffee",
+    "build:docs": "pug --out docs templates/*.pug; cp *.css docs/; cp *.js docs/"
   },
   "name": "backbone-forms-jquery-ui",
   "description": "",
