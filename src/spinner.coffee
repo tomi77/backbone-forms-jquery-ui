@@ -21,20 +21,64 @@
   return
 ) @, (_, Backbone, Form) ->
   Form.editors['jqueryui.spinner'] = Form.editors.Text.extend
-    tagName: 'input'
-
     className: 'bbf-jui-spinner'
+
+    events:
+      focus: (event) ->
+        @trigger 'focus', @
+        return
+      blur: (event) ->
+        @trigger 'blur', @
+        return
+      spinstop: () ->
+        @trigger 'change', @
+        return
 
     initialize: (options) ->
       Form.editors.Text::initialize.call @, options
 
       @editorOptions = @schema.editorOptions or {}
 
+      [@$spinner, @$el] = [@$el, Backbone.$ '<div>']
+      @el = @$el[0]
+      @$el.html @$spinner
+
       return
 
     render: () ->
-      f = () => @$el.spinner @editorOptions or {}
-      _.delay f, @schema.delay or 100
-      Form.editors.Text::render.call @
+      @$spinner.spinner @editorOptions
+      return Form.editors.Text::render.call @
+
+    determineChange: (event) ->
+      currentValue = @$spinner.val()
+      changed = currentValue isnt @previousValue
+
+      if changed
+        @previousValue = currentValue
+
+        @trigger 'change', @
+      return
+
+    getValue: () -> @$spinner.val()
+
+    setValue: (val) ->
+      @$spinner.val val
+      return
+
+    focus: () ->
+      if @hasFocus then return
+
+      @$spinner.focus()
+      return
+
+    blur: () ->
+      if not @hasFocus then return
+
+      @$spinner.blur()
+      return
+
+    select: () ->
+      @$spinner.select()
+      return
 
   return
