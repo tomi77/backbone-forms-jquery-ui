@@ -29,10 +29,20 @@ mixin menu(name)
   else
     li: a(href="spinner.html") spinner
 
-  if name == 'checkboxradio'
-    li.active: a(href="checkboxradio.html") checkboxradio
+  if name == 'checkbox'
+    li.active: a(href="checkbox.html") checkbox
   else
-    li: a(href="checkboxradio.html") checkboxradio
+    li: a(href="checkbox.html") checkbox
+
+  if name == 'checkboxes'
+    li.active: a(href="checkboxes.html") checkboxes
+  else
+    li: a(href="checkboxes.html") checkboxes
+
+  if name == 'radio'
+    li.active: a(href="radio.html") radio
+  else
+    li: a(href="radio.html") radio
 
 doctype html
 html(lang="en")
