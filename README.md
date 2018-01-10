@@ -11,8 +11,10 @@
 * [Installation](#installation)
 * [jQuery UI editors](#editors)
   * [autocomplete](#autocomplete)
+  * [checkbox](#checkbox)
+  * [checkboxes](#checkboxes)
   * [datepicker](#datepicker)
-  * [checkboxradio](#checkboxradio)
+  * [radio](#radio)
   * [selectmenu](#selectmenu)
   * [slider](#slider)
   * [spinner](#spinner)
@@ -72,6 +74,53 @@ var form = new Backbone.Form({
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/autocomplete.html)
 
+### checkbox
+
+#### Schema options
+
+`editorOptions` - jQuery UI selectmenu options
+
+`delay` - Delay of render selectmenu. This widget must be rendered in main DOM tree, not in virtual DOM element.
+
+#### Example
+
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    val: {
+      type: 'jqueryui.checkbox',
+      title: 'Val'
+    }
+  }
+});
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/checkbox.html)
+
+### checkboxes
+
+#### Schema options
+
+`editorOptions` - jQuery UI selectmenu options
+
+`delay` - Delay of render selectmenu. This widget must be rendered in main DOM tree, not in virtual DOM element.
+
+#### Example
+
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    val: {
+      type: 'jqueryui.checkboxes',
+      title: 'Val',
+      options: ['1', '2', '3']
+    }
+  }
+});
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/checkboxes.html)
+
 ### datepicker
 
 #### Schema options
@@ -96,7 +145,7 @@ var form = new Backbone.Form({
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/datepicker.html)
 
-### checkboxradio
+### radio
 
 #### Schema options
 
@@ -110,25 +159,6 @@ var form = new Backbone.Form({
 var form = new Backbone.Form({
   schema: {
     val: {
-      type: 'jqueryui.checkbox',
-      title: 'Val'
-    }
-  }
-});
-
-form = new Backbone.Form({
-  schema: {
-    val: {
-      type: 'jqueryui.checkboxes',
-      title: 'Val',
-      options: ['1', '2', '3']
-    }
-  }
-});
-
-form = new Backbone.Form({
-  schema: {
-    val: {
       type: 'jqueryui.radio',
       title: 'Val',
       options: ['1', '2', '3']
@@ -137,7 +167,7 @@ form = new Backbone.Form({
 });
 ~~~
 
-[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/checkboxradio.html)
+[Demo](https://tomi77.github.io/backbone-forms-jquery-ui/radio.html)
 
 ### selectmenu
 
