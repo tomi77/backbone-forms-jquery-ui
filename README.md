@@ -9,13 +9,13 @@
 ## Table of contents
 
 * [Installation](#installation)
-* [Editors](#editors)
-  * [jQuery UI autocomplete editor](#jquery-ui-autocomplete-editor)
-  * [jQuery UI datepicker editor](#jquery-ui-datepicker-editor)
-  * [jQuery UI checkboxradio editors](#jquery-ui-checkboxradio-editors)
-  * [jQuery UI selectmenu editor](#jquery-ui-selectmenu-editor)
-  * [jQuery UI slider editor](#jquery-ui-slider-editor)
-  * [jQuery UI spinner editor](#jquery-ui-spinner-editor)
+* [jQuery UI editors](#editors)
+  * [autocomplete](#autocomplete)
+  * [datepicker](#datepicker)
+  * [checkboxradio](#checkboxradio)
+  * [selectmenu](#selectmenu)
+  * [slider](#slider)
+  * [spinner](#spinner)
 * [TODO](#todo)
 
 ## Installation
@@ -32,9 +32,9 @@ NPM:
 npm install backbone-forms-jquery-ui
 ~~~
 
-## Editors
+## jQuery UI editors
 
-### jQuery UI autocomplete editor
+### autocomplete
 
 #### Schema options
 
@@ -72,7 +72,7 @@ var form = new Backbone.Form({
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/autocomplete.html)
 
-### jQuery UI datepicker editor
+### datepicker
 
 #### Schema options
 
@@ -96,7 +96,7 @@ var form = new Backbone.Form({
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/datepicker.html)
 
-### jQuery UI checkboxradio editors
+### checkboxradio
 
 #### Schema options
 
@@ -139,7 +139,7 @@ form = new Backbone.Form({
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/checkboxradio.html)
 
-### jQuery UI selectmenu editor
+### selectmenu
 
 #### Schema options
 
@@ -163,7 +163,7 @@ var form = new Backbone.Form({
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/selectmenu.html)
 
-### jQuery UI slider editor
+### slider
 
 #### Schema options
 
@@ -184,7 +184,7 @@ var form = new Backbone.Form({
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/slider.html)
 
-### jQuery UI spinner editor
+### spinner
 
 #### Schema options
 
