@@ -6,6 +6,8 @@
 [![devDependencies Status](https://david-dm.org/tomi77/backbone-forms-jquery-ui/dev-status.svg)](https://david-dm.org/tomi77/backbone-forms-jquery-ui?type=dev)
 ![Downloads](https://img.shields.io/npm/dt/backbone-forms-jquery-ui.svg)
 
+A [Backbone-Forms](https://github.com/powmedia/backbone-forms) [jQuery UI](https://jqueryui.com/) related editors
+
 ## Table of contents
 
 * [Installation](#installation)
