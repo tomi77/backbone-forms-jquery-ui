@@ -33,7 +33,7 @@ bower install backbone-forms-jquery-ui
 NPM:
 
 ~~~bash
-npm install backbone-forms-jquery-ui
+npm install backbone backbone-forms backbone-forms-jquery-ui
 ~~~
 
 ## jQuery UI editors
