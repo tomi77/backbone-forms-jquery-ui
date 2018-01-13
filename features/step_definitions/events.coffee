@@ -29,8 +29,7 @@ defineSupportCode ({When, Then}) ->
 
   Then 'Blur event is fired', () ->
     condition = new WebElementCondition '', (driver) ->
-      driver.findElements css: '.focus'
-      .then (elements) -> elements[0]
+      driver.findElement css: '.focus'
       .then (element) -> element.isDisplayed().then (v) -> if v then null else element
     @driver.wait(condition)
 
