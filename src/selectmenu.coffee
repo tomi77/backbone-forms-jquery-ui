@@ -39,34 +39,34 @@
 
       @editorOptions = @schema.editorOptions or {}
 
-      [@$select, @$el] = [@$el, Backbone.$ '<div>']
+      [@$input, @$el] = [@$el, Backbone.$ '<div>']
       @el = @$el[0]
-      @$el.html @$select
+      @$el.html @$input
 
       return
 
     renderOptions: (options) ->
       html = @_getOptionsHtml options
-      @$select.html html
-      @$select.selectmenu @editorOptions
+      @$input.html html
+      @$input.selectmenu @editorOptions
       @setValue @value
       return
 
-    getValue: () -> @$select.val()
+    getValue: () -> @$input.val()
 
     setValue: (val) ->
-      @$select.val val
-      @$select.selectmenu 'refresh'
+      @$input.val val
+      @$input.selectmenu 'refresh'
       return
 
     focus: () ->
       if @hasFocus then return
-      @$select.selectmenu 'open'
+      @$input.selectmenu 'open'
       return
 
     blur: () ->
       if not @hasFocus then return
-      @$select.selectmenu 'close'
+      @$input.selectmenu 'close'
       return
 
     change: () ->

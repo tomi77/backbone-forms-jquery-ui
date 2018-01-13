@@ -39,18 +39,18 @@
 
       @editorOptions = @schema.editorOptions or {}
 
-      [@$spinner, @$el] = [@$el, Backbone.$ '<div>']
+      [@$input, @$el] = [@$el, Backbone.$ '<div>']
       @el = @$el[0]
-      @$el.html @$spinner
+      @$el.html @$input
 
       return
 
     render: () ->
-      @$spinner.spinner @editorOptions
+      @$input.spinner @editorOptions
       return Form.editors.Text::render.call @
 
     determineChange: (event) ->
-      currentValue = @$spinner.val()
+      currentValue = @$input.val()
       changed = currentValue isnt @previousValue
 
       if changed
@@ -59,26 +59,26 @@
         @trigger 'change', @
       return
 
-    getValue: () -> @$spinner.val()
+    getValue: () -> @$input.val()
 
     setValue: (val) ->
-      @$spinner.val val
+      @$input.val val
       return
 
     focus: () ->
       if @hasFocus then return
 
-      @$spinner.focus()
+      @$input.focus()
       return
 
     blur: () ->
       if not @hasFocus then return
 
-      @$spinner.blur()
+      @$input.blur()
       return
 
     select: () ->
-      @$spinner.select()
+      @$input.select()
       return
 
   return

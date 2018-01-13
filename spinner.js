@@ -40,17 +40,17 @@
       var ref;
       Form.editors.Text.prototype.initialize.call(this, options);
       this.editorOptions = this.schema.editorOptions || {};
-      ref = [this.$el, Backbone.$('<div>')], this.$spinner = ref[0], this.$el = ref[1];
+      ref = [this.$el, Backbone.$('<div>')], this.$input = ref[0], this.$el = ref[1];
       this.el = this.$el[0];
-      this.$el.html(this.$spinner);
+      this.$el.html(this.$input);
     },
     render: function() {
-      this.$spinner.spinner(this.editorOptions);
+      this.$input.spinner(this.editorOptions);
       return Form.editors.Text.prototype.render.call(this);
     },
     determineChange: function(event) {
       var changed, currentValue;
-      currentValue = this.$spinner.val();
+      currentValue = this.$input.val();
       changed = currentValue !== this.previousValue;
       if (changed) {
         this.previousValue = currentValue;
@@ -58,25 +58,25 @@
       }
     },
     getValue: function() {
-      return this.$spinner.val();
+      return this.$input.val();
     },
     setValue: function(val) {
-      this.$spinner.val(val);
+      this.$input.val(val);
     },
     focus: function() {
       if (this.hasFocus) {
         return;
       }
-      this.$spinner.focus();
+      this.$input.focus();
     },
     blur: function() {
       if (!this.hasFocus) {
         return;
       }
-      this.$spinner.blur();
+      this.$input.blur();
     },
     select: function() {
-      this.$spinner.select();
+      this.$input.select();
     }
   });
 });

@@ -40,35 +40,35 @@
       var ref;
       Form.editors.Select.prototype.initialize.call(this, options);
       this.editorOptions = this.schema.editorOptions || {};
-      ref = [this.$el, Backbone.$('<div>')], this.$select = ref[0], this.$el = ref[1];
+      ref = [this.$el, Backbone.$('<div>')], this.$input = ref[0], this.$el = ref[1];
       this.el = this.$el[0];
-      this.$el.html(this.$select);
+      this.$el.html(this.$input);
     },
     renderOptions: function(options) {
       var html;
       html = this._getOptionsHtml(options);
-      this.$select.html(html);
-      this.$select.selectmenu(this.editorOptions);
+      this.$input.html(html);
+      this.$input.selectmenu(this.editorOptions);
       this.setValue(this.value);
     },
     getValue: function() {
-      return this.$select.val();
+      return this.$input.val();
     },
     setValue: function(val) {
-      this.$select.val(val);
-      this.$select.selectmenu('refresh');
+      this.$input.val(val);
+      this.$input.selectmenu('refresh');
     },
     focus: function() {
       if (this.hasFocus) {
         return;
       }
-      this.$select.selectmenu('open');
+      this.$input.selectmenu('open');
     },
     blur: function() {
       if (!this.hasFocus) {
         return;
       }
-      this.$select.selectmenu('close');
+      this.$input.selectmenu('close');
     },
     change: function() {
       this.trigger('change', this);
