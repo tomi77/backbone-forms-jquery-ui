@@ -7,13 +7,13 @@ Feature: Test "jqueryui.datepicker" editor
   Scenario: "focus" event
     Given Show "datepicker" form
     When Click on the "bbf-jui-datepicker" editor
-    Then Focus event is fired
+    Then "focus" event is fired
 
   Scenario: "blur" event
     Given Show "datepicker" form
     When Click on the "bbf-jui-datepicker" editor
     And Leaving the editor
-    Then Blur event is fired
+    Then "blur" event is fired
 
   @ignore
   Scenario: "change" event

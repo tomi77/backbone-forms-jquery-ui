@@ -7,13 +7,13 @@ Feature: Test "jqueryui.checkbox" editor
   Scenario: "focus" event
     Given Show "checkbox" form
     When Click on the "ui-checkboxradio-label" editor
-    Then Focus event is fired
+    Then "focus" event is fired
 
   Scenario: "blur" event
     Given Show "checkbox" form
     When Click on the "ui-checkboxradio-label" editor
     And Leaving the editor
-    Then Blur event is fired
+    Then "blur" event is fired
 
   Scenario: "change" event
     Given Show "checkbox" form

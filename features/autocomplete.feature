@@ -7,13 +7,13 @@ Feature: Test "jqueryui.autocomplete" editor
   Scenario: "focus" event
     Given Show "autocomplete" form
     When Click on the "bbf-jui-autocomplete" editor
-    Then Focus event is fired
+    Then "focus" event is fired
 
   Scenario: "blur" event
     Given Show "autocomplete" form
     When Click on the "bbf-jui-autocomplete" editor
     And Leaving the editor
-    Then Blur event is fired
+    Then "blur" event is fired
 
   Scenario: "change" event
     Given Show "autocomplete" form

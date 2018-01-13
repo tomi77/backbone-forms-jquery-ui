@@ -6,31 +6,25 @@ Until = seleniumWebdriver.until
 
 defineSupportCode ({When, Then}) ->
   When 'Click on the {string} editor', (cssSelector) ->
-    @driver.findElement css: ".#{cssSelector}"
+    @driver.findElement By.className cssSelector
     .then (element) -> element.click()
 
   When 'Start dragging {string} element', (cssSelector) ->
-    @driver.findElement css: ".#{cssSelector}"
+    @driver.findElement By.className cssSelector
     .then (element) => @driver.actions().mouseDown(element).perform()
 
   When 'Stop dragging {string} element', (cssSelector) ->
-    @driver.findElement css: ".#{cssSelector}"
+    @driver.findElement By.className cssSelector
     .then (element) => @driver.actions().mouseUp(element).perform()
 
-  Then 'Focus event is fired', () ->
+  Then '{string} event is fired', (type) ->
     condition = new WebElementCondition '', (driver) ->
-      driver.findElement css: '.blur'
-      .then (element) -> element.isDisplayed().then (v) -> if v then null else element
+      driver.findElement By.className type
+      .then (element) -> element.isDisplayed().then (v) -> if v then element else null
     @driver.wait(condition)
 
   When 'Leaving the editor', () ->
     @driver.findElement css: 'body'
     .then (element) -> element.click()
-
-  Then 'Blur event is fired', () ->
-    condition = new WebElementCondition '', (driver) ->
-      driver.findElement css: '.focus'
-      .then (element) -> element.isDisplayed().then (v) -> if v then null else element
-    @driver.wait(condition)
 
   Then 'Change event is fired and show {string}', (new_val) -> @driver.wait Until.elementTextIs @driver.findElement(css: '.change .label'), new_val
