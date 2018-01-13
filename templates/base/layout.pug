@@ -1,43 +1,43 @@
 mixin menu(name)
   if name == 'autocomplete'
-    li.active: a(href="autocomplete.html") autocomplete
+    li.active: a(href="autocomplete.html" title="jQuery UI Autocomplete Widget") autocomplete
   else
-    li: a(href="autocomplete.html") autocomplete
+    li: a(href="autocomplete.html" title="jQuery UI Autocomplete Widget") autocomplete
 
   if name == 'datepicker'
-    li.active: a(href="datepicker.html") datepicker
+    li.active: a(href="datepicker.html" title="jQuery UI Datepicker Widget") datepicker
   else
-    li: a(href="datepicker.html") datepicker
+    li: a(href="datepicker.html" title="jQuery UI Datepicker Widget") datepicker
 
   if name == 'selectmenu'
-    li.active: a(href="selectmenu.html") selectmenu
+    li.active: a(href="selectmenu.html" title="jQuery UI Selectmenu Widget") selectmenu
   else
-    li: a(href="selectmenu.html") selectmenu
+    li: a(href="selectmenu.html" title="jQuery UI Selectmenu Widget") selectmenu
 
   if name == 'slider'
-    li.active: a(href="slider.html") slider
+    li.active: a(href="slider.html" title="jQuery UI Slider Widget") slider
   else
-    li: a(href="slider.html") slider
+    li: a(href="slider.html" title="jQuery UI Slider Widget") slider
 
   if name == 'spinner'
-    li.active: a(href="spinner.html") spinner
+    li.active: a(href="spinner.html" title="jQuery UI Spinner Widget") spinner
   else
-    li: a(href="spinner.html") spinner
+    li: a(href="spinner.html" title="jQuery UI Spinner Widget") spinner
 
   if name == 'checkbox'
-    li.active: a(href="checkbox.html") checkbox
+    li.active: a(href="checkbox.html" title="jQuery UI Checkboxradio Widget") checkbox
   else
-    li: a(href="checkbox.html") checkbox
+    li: a(href="checkbox.html" title="jQuery UI Checkboxradio Widget") checkbox
 
   if name == 'checkboxes'
-    li.active: a(href="checkboxes.html") checkboxes
+    li.active: a(href="checkboxes.html" title="jQuery UI Checkboxradio Widget") checkboxes
   else
-    li: a(href="checkboxes.html") checkboxes
+    li: a(href="checkboxes.html" title="jQuery UI Checkboxradio Widget") checkboxes
 
   if name == 'radio'
-    li.active: a(href="radio.html") radio
+    li.active: a(href="radio.html" title="jQuery UI Checkboxradio Widget") radio
   else
-    li: a(href="radio.html") radio
+    li: a(href="radio.html" title="jQuery UI Checkboxradio Widget") radio
 
 doctype html
 html(lang="en")
@@ -45,10 +45,13 @@ html(lang="en")
     meta(charset="UTF-8")
     block title
     link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css")
+    link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     block extraheaders
   body
     nav.navbar.navbar-default
       .container
+        a.navbar-brand(href="https://github.com/tomi77/backbone-forms-jquery-ui" title="Source code")
+          i.fa.fa-github
         .collapse.navbar-collapse
           ul.nav.navbar-nav
             block menu
