@@ -23,11 +23,40 @@
   Form.editors['jqueryui.checkbox'] = Form.editors.Checkbox.extend
     className: 'bbf-jui-checkbox'
 
+    initialize: (options) ->
+      Form.editors.Checkbox::initialize.call @, options
+
+      @editorOptions = @schema.editorOptions or {}
+
+      [@$input, @$el, $label] = [@$el, Backbone.$('<div>'), Backbone.$("<label for='#{ @id }'>")]
+      @el = @$el[0]
+      $label.html('&nbsp;')
+      @$el.html @$input
+      @$el.append $label
+
+      return
+
     render: () ->
-      f = () =>
-        @$el.checkboxradio @schema.editorOptions or {}
-        return
-      _.delay f, @schema.delay or 100
+      @$input.checkboxradio @editorOptions
       Form.editors.Checkbox::render.call @
+
+    getValue: () ->
+      @$input.prop('checked')
+
+    setValue: (value) ->
+      @$input.prop('checked', value is true)
+      return
+
+    focus: () ->
+      if @hasFocus then return
+
+      @$input.focus()
+      return
+
+    blur: () ->
+      if not @hasFocus then return
+
+      @$input.blur()
+      return
 
   return

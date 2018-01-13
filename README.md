@@ -82,8 +82,6 @@ var form = new Backbone.Form({
 
 `editorOptions` - jQuery UI selectmenu options
 
-`delay` - Delay of render selectmenu. This widget must be rendered in main DOM tree, not in virtual DOM element.
-
 #### Example
 
 ~~~js

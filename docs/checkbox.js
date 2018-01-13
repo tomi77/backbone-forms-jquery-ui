@@ -25,15 +25,37 @@
 })(this, function(Form) {
   Form.editors['jqueryui.checkbox'] = Form.editors.Checkbox.extend({
     className: 'bbf-jui-checkbox',
+    initialize: function(options) {
+      var $label, ref;
+      Form.editors.Checkbox.prototype.initialize.call(this, options);
+      this.editorOptions = this.schema.editorOptions || {};
+      ref = [this.$el, Backbone.$('<div>'), Backbone.$("<label for='" + this.id + "'>")], this.$input = ref[0], this.$el = ref[1], $label = ref[2];
+      this.el = this.$el[0];
+      $label.html('&nbsp;');
+      this.$el.html(this.$input);
+      this.$el.append($label);
+    },
     render: function() {
-      var f;
-      f = (function(_this) {
-        return function() {
-          _this.$el.checkboxradio(_this.schema.editorOptions || {});
-        };
-      })(this);
-      _.delay(f, this.schema.delay || 100);
+      this.$input.checkboxradio(this.editorOptions);
       return Form.editors.Checkbox.prototype.render.call(this);
+    },
+    getValue: function() {
+      return this.$input.prop('checked');
+    },
+    setValue: function(value) {
+      this.$input.prop('checked', value === true);
+    },
+    focus: function() {
+      if (this.hasFocus) {
+        return;
+      }
+      this.$input.focus();
+    },
+    blur: function() {
+      if (!this.hasFocus) {
+        return;
+      }
+      this.$input.blur();
     }
   });
 });
