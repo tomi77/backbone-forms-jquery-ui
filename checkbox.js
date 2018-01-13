@@ -1,6 +1,6 @@
 
 /*
-  Backbone-Forms jQuery UI checkboxradio editors 0.1.0
+  Backbone-Forms jQuery UI checkbox editor 0.1.0
 
   Copyright (c) 2016 Tomasz Jakub Rup
 
@@ -34,32 +34,6 @@
       })(this);
       _.delay(f, this.schema.delay || 100);
       return Form.editors.Checkbox.prototype.render.call(this);
-    }
-  });
-  Form.editors['jqueryui.checkboxes'] = Form.editors.Checkboxes.extend({
-    className: 'bbf-jui-checkboxes',
-    renderOptions: function(options) {
-      var f;
-      f = (function(_this) {
-        return function() {
-          _this.$('input[type=checkbox]').checkboxradio(_this.schema.editorOptions || {});
-        };
-      })(this);
-      _.delay(f, this.schema.delay || 100);
-      return Form.editors.Checkboxes.prototype.renderOptions.call(this, options);
-    }
-  });
-  Form.editors['jqueryui.radio'] = Form.editors.Radio.extend({
-    className: 'bbf-jui-radio',
-    renderOptions: function(options) {
-      var f;
-      f = (function(_this) {
-        return function() {
-          _this.$('input[type=radio]').checkboxradio(_this.schema.editorOptions || {});
-        };
-      })(this);
-      _.delay(f, this.schema.delay || 100);
-      return Form.editors.Radio.prototype.renderOptions.call(this, options);
     }
   });
 });
