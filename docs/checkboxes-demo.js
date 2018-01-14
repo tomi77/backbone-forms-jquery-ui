@@ -7,7 +7,10 @@ var example = function () {
       val: {
         type: 'jqueryui.checkboxes',
         title: 'Val',
-        options: ['1', '2', '3']
+        options: ['1', '2', '3'],
+        editorOptions: {
+          icon: false
+        }
       }
     }
   });

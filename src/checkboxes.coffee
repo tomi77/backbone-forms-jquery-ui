@@ -23,11 +23,16 @@
   Form.editors['jqueryui.checkboxes'] = Form.editors.Checkboxes.extend
     className: 'bbf-jui-checkboxes'
 
+    initialize: (options) ->
+      Form.editors.Checkboxes::initialize.call @, options
+
+      @editorOptions = @schema.editorOptions or {}
+
+      return
+
     renderOptions: (options) ->
-      f = () =>
-        @$('input[type=checkbox]').checkboxradio @schema.editorOptions or {}
-        return
-      _.delay f, @schema.delay or 100
       Form.editors.Checkboxes::renderOptions.call @, options
+      @$('input[type=checkbox]').checkboxradio @editorOptions
+      return
 
   return

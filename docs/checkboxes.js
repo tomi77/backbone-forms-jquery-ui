@@ -25,15 +25,13 @@
 })(this, function(Form) {
   Form.editors['jqueryui.checkboxes'] = Form.editors.Checkboxes.extend({
     className: 'bbf-jui-checkboxes',
+    initialize: function(options) {
+      Form.editors.Checkboxes.prototype.initialize.call(this, options);
+      this.editorOptions = this.schema.editorOptions || {};
+    },
     renderOptions: function(options) {
-      var f;
-      f = (function(_this) {
-        return function() {
-          _this.$('input[type=checkbox]').checkboxradio(_this.schema.editorOptions || {});
-        };
-      })(this);
-      _.delay(f, this.schema.delay || 100);
-      return Form.editors.Checkboxes.prototype.renderOptions.call(this, options);
+      Form.editors.Checkboxes.prototype.renderOptions.call(this, options);
+      this.$('input[type=checkbox]').checkboxradio(this.editorOptions);
     }
   });
 });
