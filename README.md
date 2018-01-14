@@ -43,7 +43,7 @@ npm install backbone backbone-forms backbone-forms-jquery-ui
 
 `options` - Array of strings or Backbone Collection
 
-`editorOptions` - jQuery UI autocomplete options
+`editorOptions` - jQuery UI autocomplete [options](http://api.jqueryui.com/autocomplete/)
 
 #### Example
 
@@ -79,7 +79,7 @@ var form = new Backbone.Form({
 
 #### Schema options
 
-`editorOptions` - jQuery UI selectmenu options
+`editorOptions` - jQuery UI checkboxradio [options](http://api.jqueryui.com/checkboxradio/)
 
 #### Example
 
@@ -100,7 +100,7 @@ var form = new Backbone.Form({
 
 #### Schema options
 
-`editorOptions` - jQuery UI selectmenu options
+`editorOptions` - jQuery UI checkboxradio [options](http://api.jqueryui.com/checkboxradio/)
 
 #### Example
 
@@ -122,7 +122,7 @@ var form = new Backbone.Form({
 
 #### Schema options
 
-`editorOptions` - jQuery UI datepicker options
+`editorOptions` - jQuery UI datepicker [options](http://api.jqueryui.com/datepicker/)
 
 #### Example
 
@@ -146,7 +146,7 @@ var form = new Backbone.Form({
 
 #### Schema options
 
-`editorOptions` - jQuery UI selectmenu options
+`editorOptions` - jQuery UI checkboxradio [options](http://api.jqueryui.com/checkboxradio/)
 
 #### Example
 
@@ -170,7 +170,7 @@ var form = new Backbone.Form({
 
 `options` - Array of strings or Backbone Collection
 
-`editorOptions` - jQuery UI selectmenu options
+`editorOptions` - jQuery UI selectmenu [options](http://api.jqueryui.com/selectmenu/)
 
 #### Example
 
@@ -192,7 +192,7 @@ var form = new Backbone.Form({
 
 #### Schema options
 
-`editorOptions` - jQuery UI selectmenu options
+`editorOptions` - jQuery UI slider [options](http://api.jqueryui.com/slider/)
 
 #### Example
 
@@ -213,7 +213,7 @@ var form = new Backbone.Form({
 
 #### Schema options
 
-`editorOptions` - jQuery UI selectmenu options
+`editorOptions` - jQuery UI spinner [options](http://api.jqueryui.com/spinner/)
 
 #### Example
 
