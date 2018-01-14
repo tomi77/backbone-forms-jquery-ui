@@ -25,15 +25,17 @@
 })(this, function(Form) {
   Form.editors['jqueryui.radio'] = Form.editors.Radio.extend({
     className: 'bbf-jui-radio',
+    initialize: function(options) {
+      Form.editors.Radio.prototype.initialize.call(this, options);
+      this.editorOptions = this.schema.editorOptions || {};
+    },
     renderOptions: function(options) {
-      var f;
-      f = (function(_this) {
+      Form.editors.Radio.prototype.renderOptions.call(this, options);
+      _.delay((function(_this) {
         return function() {
-          _this.$('input[type=radio]').checkboxradio(_this.schema.editorOptions || {});
+          _this.$('input[type=radio]').checkboxradio(_this.editorOptions);
         };
-      })(this);
-      _.delay(f, this.schema.delay || 100);
-      return Form.editors.Radio.prototype.renderOptions.call(this, options);
+      })(this), 0);
     }
   });
 });

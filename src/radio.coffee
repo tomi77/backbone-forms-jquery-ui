@@ -23,11 +23,19 @@
   Form.editors['jqueryui.radio'] = Form.editors.Radio.extend
     className: 'bbf-jui-radio'
 
+    initialize: (options) ->
+      Form.editors.Radio::initialize.call @, options
+
+      @editorOptions = @schema.editorOptions or {}
+
+      return
+
     renderOptions: (options) ->
-      f = () =>
-        @$('input[type=radio]').checkboxradio @schema.editorOptions or {}
-        return
-      _.delay f, @schema.delay or 100
       Form.editors.Radio::renderOptions.call @, options
+      _.delay () =>
+        @$('input[type=radio]').checkboxradio @editorOptions
+        return
+      , 0
+      return
 
   return
