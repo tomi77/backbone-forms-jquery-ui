@@ -9,8 +9,7 @@
     "radio.js",
     "selectmenu.js",
     "slider.js",
-    "spinner.js",
-    "jquery-ui.css"
+    "spinner.js"
   ],
   "authors": [
     "Tomasz Jakub Rup"
