@@ -20,7 +20,6 @@ A [Backbone-Forms](https://github.com/powmedia/backbone-forms) [jQuery UI](https
   * [selectmenu](#selectmenu)
   * [slider](#slider)
   * [spinner](#spinner)
-* [TODO](#todo)
 
 ## Installation
 
@@ -149,8 +148,6 @@ var form = new Backbone.Form({
 
 `editorOptions` - jQuery UI selectmenu options
 
-`delay` - Delay of render selectmenu. This widget must be rendered in main DOM tree, not in virtual DOM element.
-
 #### Example
 
 ~~~js
@@ -237,8 +234,3 @@ var form = new Backbone.Form({
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-jquery-ui/spinner.html)
-
-## TODO
-
-* fix events
-* remove `delay` options
