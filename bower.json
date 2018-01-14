@@ -31,6 +31,10 @@
   ],
   "homepage": "https://github.com/tomi77/backbone-forms-jquery-ui",
   "ignore": [
+    "templates",
+    "features",
+    "docs",
+    "coverage",
     "node_modules",
     "bower_components",
     ".*",

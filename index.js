@@ -1,6 +1,6 @@
 
 /*
-  Backbone-Forms jQuery UI editors 0.1.0
+  Backbone-Forms jQuery UI editors 1.0.0
 
   Copyright (c) 2016 Tomasz Jakub Rup
 

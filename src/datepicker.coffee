@@ -1,5 +1,5 @@
 ###
-  Backbone-Forms jQuery UI datepicker editor 0.1.0
+  Backbone-Forms jQuery UI datepicker editor 1.0.0
 
   Copyright (c) 2016 Tomasz Jakub Rup
 
