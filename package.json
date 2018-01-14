@@ -25,6 +25,7 @@
   "description": "A Backbone-Forms jQuery UI related editors",
   "version": "1.0.0",
   "repository": "tomi77/backbone-forms-jquery-ui",
+  "main": "index.js",
   "keywords": [
     "backbone-forms",
     "jquery-ui",
